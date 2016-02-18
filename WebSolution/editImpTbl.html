@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <style type="text/css"></style>
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/AddorDel.js"></script>
+    <script type="text/javascript">
+        function addNewDs() {
+            $("#childTr").clone(true).appendTo($("#targetTb"));
+        }
+        function deletNewDs(node) {
+            var num = $(".delete_unPress").length;
+            if (num <= 1) return;
+            $(node).parent().parent().parent().parent().parent().remove();
+        }
+    </script>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop30">
+        <table style="width: 400px; margin: auto auto">
+            <tr>
+                <td class="head" style="width: 150px; text-align: left">集成库:</td>
+                <td class="head">XXXXXXXXXXXXXXX
+                </td>
+            </tr>
+        </table>
+        <table style="width: 400px; margin: auto auto">
+            <tr>
+                <td class="head" style="width: 150px; text-align: left">集成系统:</td>
+                <td class="head">
+                    <select class="inputNoWidth">
+                        <option value="1">人力资源系统</option>
+                        <option value="2">获取人员信息的业务系统</option>
+                        <option value="3">全球健康查询服务 </option>
+                        <option value="4">国家健康查询代理服务</option>
+                        <option value="7">OA系统</option>
+                        <option value="8">用友HR系统</option>
+                        <option value="9">综合项目管理系统</option>
+                    </select>
+                </td>
+                <td>
+                    <input id="Button5" type="button" class="add_unPress" onclick="addNewDs();" onmousedown="addonMouseDown(this)" onmouseup="addonMouseUp(this)" /></td>
+            </tr>
+        </table>
+    </div>
+    <div style="margin: auto auto; width: 100%;">
+        <table id="targetTb" style="width: 100%; margin: auto auto" class="tableBorderStyle">
+            <tr id="childTr">
+                <td>
+                    <table style="width: 100%; margin: 30px auto auto auto" class="tableBorderStyle">
+                        <tr>
+                            <td class="paddingTopBottom10Head" style="background: #c5c5c5" colspan="2">集成系统
+                            </td>
+                            <td class="paddingTopBottom10Head" style="background: #c5c5c5" colspan="3">XXXXXXXXXXXXXXX
+                            </td>
+                            <td class="tableContentHead" style="width: 12%; background: #c5c5c5; vertical-align: central">
+                                <div style="width: 50px; margin: auto auto">
+                                    <input id="Button4" type="button" class="delete_unPress" onclick="deletNewDs(this)" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableContentEndsHead" style="width: 6%">编号
+                            </td>
+                            <td class="tableContentHead" style="width: 20%">数据源&nbsp;
+                            </td>
+                            <td class="tableContentHead">&nbsp;</td>
+                            <td class="tableContentHead" style="width: 20%">导出表
+                            </td>
+                            <td class="tableContentHead">表描述</td>
+                            <td class="tableContentHead" style="width: 12%">全选 
+                    <input type="checkbox" /></td>
+                        </tr>
+                        <tr style="height: 20px">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="tableContentNum" rowspan="4">1
+                            </td>
+                            <td class="roleQuli" rowspan="4">DS XXXXXXXXXX&nbsp;
+                            </td>
+                            <td class="rectangletd" rowspan="4">
+                                <img src="img/rectangle.png" class="rectangleImg" /></td>
+                            <td class="tableContent">TABLE XXXXXXXXXX
+                            </td>
+                            <td class="tableContent" style="text-align: center">NOTE XXXXXXXXXX&nbsp;
+                            </td>
+                            <td class="tableContent" style="text-align: center">
+                                <input type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                            <td class="tableContent">TABLE XXXXXXXXXX
+                            </td>
+                            <td class="tableContent" style="text-align: center">NOTE XXXXXXXXXX&nbsp;
+                            </td>
+                            <td class="tableContent" style="text-align: center">
+                                <input type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                            <td class="tableContent">TABLE XXXXXXXXXX
+                            </td>
+                            <td class="tableContent" style="text-align: center">NOTE XXXXXXXXXX
+                            </td>
+                            <td class="tableContent" style="text-align: center">
+                                <input type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                            <td class="tableContent">TABLE XXXXXXXXXX
+                            </td>
+                            <td class="tableContent" style="text-align: center">NOTE XXXXXXXXXX
+                            </td>
+                            <td class="tableContent" style="text-align: center">
+                                <input type="checkbox" /></td>
+                        </tr>
+
+                        <tr class="height20">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="tableContentNum" rowspan="2">2
+                            </td>
+                            <td class="roleQuli" rowspan="2">DS XXXXXXXXXX&nbsp;
+                            </td>
+                            <td class="rectangletd" rowspan="2">
+                                <img src="img/rectangle.png" class="rectangleImg" /></td>
+                            <td class="tableContent">NOTE XXXXXXXXXX&nbsp;&nbsp;
+                            </td>
+                            <td class="tableContent" style="text-align: center">&nbsp;NOTE XXXXXXXXXX
+										&nbsp;
+                            </td>
+                            <td class="tableContent" style="text-align: center">
+                                <input type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                            <td class="tableContent">NOTE XXXXXXXXXX
+                            </td>
+                            <td class="tableContent" style="text-align: center">&nbsp;NOTE XXXXXXXXXX&nbsp;
+                            </td>
+                            <td class="tableContent" style="text-align: center">
+                                <input type="checkbox" /></td>
+                        </tr>
+                        <tr class="height20">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop10">
+        <table style="width: 200px; margin: auto auto; text-align: center">
+            <tr>
+                <td>
+                    <input id="Button2" type="button" onclick="go2Previous();" class="previous_unPress" /></td>
+                <td>
+                    <input id="Button1" type="button" class="next_unPress" onclick="go2Next('editImpTable.html')" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

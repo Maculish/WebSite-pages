@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <style type="text/css">
+        .searchTitleStyle {
+            color: #000;
+            text-align: left;
+            padding-left: 40px;
+            vertical-align: central;
+            font-weight: normal;
+            width: 110px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .searchTextTD {
+            color: #000;
+            text-align: left;
+            vertical-align: central;
+            font-weight: normal;
+            width: 150px;
+        }
+
+        .searchTd {
+            text-align: center;
+            vertical-align: central;
+        }
+
+        .searchText {
+            height: 25px;
+            line-height: 25px;
+            width: 140px;
+            text-align: left;
+            vertical-align: central;
+            border: thin solid #b7b7b7;
+        }
+
+        .contentTable {
+            width: 100%;
+            margin: auto auto;
+            border-collapse: collapse;
+            border-spacing: 0px;
+            min-width: 700px;
+        }
+
+        .contentTitleStyle {
+            font-weight: bold;
+            height: 38px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .contentNumStyle {
+            padding-top: 10px;
+            text-align: center;
+            vertical-align: text-top;
+            color: #2573c7;
+        }
+
+        .contentTextStyle {
+            padding-bottom: 5px;
+            padding-top: 10px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .ceontentEditStyle {
+            text-align: center;
+            padding-bottom: 5px;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop30">
+        <table style="width: 600px; margin-left: auto; margin-right: auto">
+            <tr>
+                <td class="searchTitleStyle">用户名
+                </td>
+                <td class="searchTextTD">
+                    <input type="text" name="user.loginName" size="16" maxlength="8" value="" id="seeUser_user_loginName" class="searchText" /></td>
+                <td class="searchTitleStyle">员工工号
+                </td>
+                <td class="searchTextTD">
+                    <input type="text" name="user.number" size="16" maxlength="8" value="" id="seeUser_user_number" class="searchText" />
+                </td>
+                <td class="searchTd" rowspan="2">
+                    <input id="Button1" type="button" class="search_unPress" /></td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">员工姓名&nbsp; </td>
+                <td class="searchTextTD">
+                    <input type="text" name="user.name" size="16" maxlength="8" value="" id="seeUser_user_name" class="searchText" />
+                </td>
+                <td class="searchTitleStyle">手机号码</td>
+                <td class="searchTextTD">
+                    <input type="text" name="user.tel" size="16" maxlength="8" value="" id="seeUser_user_tel" class="searchText" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop30">
+        <table class="contentTable">
+            <tr>
+                <td class="tableContentEndsHead" style="width: 8%">编号
+                </td>
+                <td class="tableContentHead" style="width: 15%;" colspan="2">用户名
+                </td>
+                <td class="tableContentHead" style="text-align: left">员工姓名
+                </td>
+                <td class="tableContentHead" style="width: 16%; text-align: left">员工工号
+                </td>
+                <td class="tableContentHead" style="width: 16%; text-align: left">手机号码
+                </td>
+                <td class="tableContentHead" style="width: 17%; text-align: left">用户角色
+                </td>
+                <td class="tableContentEndsHead">操作
+                </td>
+            </tr>
+
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">01
+                </td>
+                <td class="roleQuli">chenjing
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">陈静
+                </td>
+                <td class="tableContent">10001
+                </td>
+                <td class="tableContent">18600000231
+                </td>
+                <td class="tableContent">系统管理员
+                </td>
+                <td class="ceontentEditStyle">
+                   <div style="width: 60px; margin: auto auto">
+                        <div style="width: 30px; float: left">
+                            <input id="Button2" type="button" class="edite_unPress" onclick="link2Next('editRs.html')"  onmousedown="editonMouseDown(this)" onmouseup="editonMouseUp(this)" />
+                            <div class="iconLable">编辑</div>
+                        </div>
+                        <div style="width: 30px; float: left">
+                            <input id="Button3" type="button" class="delete_unPress" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" /><div class="iconLable">删除</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">02
+                </td>
+                <td class="roleQuli">zhangzhe
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">张哲
+                </td>
+                <td class="tableContent">10002
+                </td>
+                <td class="tableContent">13141315222
+                </td>
+                <td class="tableContent">系统管理员
+                </td>
+                <td class="ceontentEditStyle">
+                    <div style="width: 60px; margin: auto auto">
+                        <div style="width: 30px; float: left">
+                            <input id="Button4" type="button" class="edite_unPress" onclick="link2Next('editRs.html')"  onmousedown="editonMouseDown(this)" onmouseup="editonMouseUp(this)" />
+                            <div class="iconLable">编辑</div>
+                        </div>
+                        <div style="width: 30px; float: left">
+                            <input id="Button5" type="button" class="delete_unPress" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" /><div class="iconLable">删除</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">03
+                </td>
+                <td class="roleQuli">chaixiaozong
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">柴孝宗
+                </td>
+                <td class="tableContent">10003
+                </td>
+                <td class="tableContent">18010213655
+                </td>
+                <td class="tableContent">审计人员
+                </td>
+                <td class="ceontentEditStyle">
+                   <div style="width: 60px; margin: auto auto">
+                        <div style="width: 30px; float: left">
+                            <input id="Button6" type="button" class="edite_unPress" onclick="link2Next('editRs.html')"  onmousedown="editonMouseDown(this)" onmouseup="editonMouseUp(this)" />
+                            <div class="iconLable">编辑</div>
+                        </div>
+                        <div style="width: 30px; float: left">
+                            <input id="Button7" type="button" class="delete_unPress" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" /><div class="iconLable">删除</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left" name="D1">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/num.css" />
+    <style type="text/css"></style>
+    <script type="text/javascript" src="js/AddorDel.js"></script>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop10">
+        <table style="margin: auto auto; width: 600px; table-layout: fixed">
+            <tr>
+                <td class="head" style="width: 75px;">服务名称</td>
+                <td style="width: 150px; text-align: left">
+                    <input type="text" name="service.zhName" size="16" maxlength="8" value="" id="seeWs_service_zhName" class="input130" /></td>
+                <td class="head" style="width: 75px;">服务地址</td>
+                <td style="width: 150px; text-align: left">
+                    <input type="text" name="service.zhName" size="16" maxlength="8" value="" id="Text1" class="input130" /></td>
+
+                <td rowspan="4" style="width: 150px; text-align: center; vertical-align: central">
+                    <input id="Button1" class="search_unPress" type="button" /></td>
+            </tr>
+            <tr>
+                <td class="head" style="width: 75px;">服务简介</td>
+                <td colspan="3" style="width: auto; text-align: left; vertical-align: central">
+                    <input type="text" id="sd" class="input370" style="height: 25px; line-height: 25px;" /></td>
+
+            </tr>
+            <tr>
+                <td class="head" style="width: 75px;">所属系统
+                </td>
+                <td>
+                    <select name="service.remoteSysId" id="seeWs_service_remoteSysId" class="input130">
+                        <option value="0"></option>
+                        <option value="1">人力资源系统</option>
+                        <option value="2">获取人员信息的业务系统</option>
+                        <option value="3">全球健康查询服务 </option>
+                        <option value="4">国家健康查询代理服务</option>
+                        <option value="7">OA系统</option>
+                        <option value="8">用友HR系统</option>
+                        <option value="9">综合项目管理系统</option>
+
+
+                    </select></td>
+
+                <td class="head" style="width: 75px;">状态</td>
+
+                <td>
+                    <select name="service.status" id="seeWs_service_status" style="width: 130px" class="input130">
+                        <option value="-1"></option>
+                        <option value="0">未使用</option>
+                        <option value="1">已使用</option>
+                        <option value="2">可用</option>
+                        <option value="3">禁用</option>
+
+
+                    </select></td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop30">
+        <div style="width: 100%; background-color: #fff">
+            <table style="width: 880px; margin: auto auto" class="tableBorderStyle">
+                <tr>
+                    <td class="tableContentEndsHead" style="width: 60px; text-align: left">编号
+                    </td>
+                    <td class="tableContentHead" style="width: 100px">服务名称
+                    </td>
+                    <td class="tableContentHead" style="width: 200px;">服务地址
+                    </td>
+                    <td class="tableContentHead" style="width: 180px">服务简介
+                    </td>
+                    <td class="tableContentHead" style="width: 175px">所属系统
+                    </td>
+                    <td class="tableContentHead" style="width: 55px;">状态
+                    </td>
+                    <td class="tableContentEndsHead" style="width: 110px; text-align: center">操作
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table style="width: 880px; table-layout: fixed; margin: auto auto" class="tableBorderStyle">
+            <tr class="height20">
+                <td style="width: 50px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 30px;"></td>
+                <td style="width: 170px;"></td>
+                <td style="width: 180px;"></td>
+                <td style="width: 175px"></td>
+                <td style="width: 55px"></td>
+                <td style="width: 110px"></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum" style="width: 50px">1
+                </td>
+                <td class="roleQuli" style="width: 100px">
+                    <div class="redLable" onclick="link2href('seeWsDetail.html')">用友HR服务</div>
+                    BizSys1
+                </td>
+                <td class="rectangletd" style="width: 30px;">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td style="width: 170px;" class="tableContent">http://192.168.70.187:8080/TestCaseWS/services/BizSys1?wsdl
+                </td>
+                <td class="tableContent" style="width: 180px;">BizSys1
+                </td>
+                <td class="tableContent" style="width: 175px">人力资源系统
+                </td>
+                <td class="tableContent" style="width: 55px">已使用					
+                </td>
+                <td class="tableContentEdit" style="width: 110px">
+                    <div style="width: 90px; margin: auto auto">
+                        <div style="width: 30px; float: left">
+                            <input id="Button2" type="button" value="" class="disenable_unPress" onmousedown="disenableonMouseDown(this);" onmouseup="disenableonMouseUp(this);" />
+                            <div class="iconLable">停用</div>
+                        </div>
+                        <div style="width: 30px; float: left">
+                            <input id="Button3" type="button" value="" class="edite_unPress" onclick=" link2Next('editWs.html')" onmousedown="editonMouseDown(this);" onmouseup="editonMouseUp(this);" />
+                            <div class="iconLable">编辑</div>
+                        </div>
+                        <div style="width: 30px; float: left">
+                            <input id="Button4" type="button" value="" class="delete_unPress" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" />
+                            <div class="iconLable">删除</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="height20">
+                <td style="width: 50px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 30px;"></td>
+                <td style="width: 170px;"></td>
+                <td style="width: 180px;"></td>
+                <td style="width: 175px"></td>
+                <td style="width: 55px"></td>
+                <td style="width: 110px"></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">2
+                </td>
+                <td class="roleQuli">
+                    <a href="" target="contentFrame">BizSys2</a>
+                    <br />
+                    BizSys2
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">http://192.168.70.187:8080/TestCaseWS/services/BizSys2?wsdl
+                </td>
+                <td class="tableContent">BizSys2
+                </td>
+                <td class="tableContent" style="min-width: 70px">获取人员信息的业务系统
+                </td>
+                <td class="tableContent" style="min-width: 50px">已使用				
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button5" type="button" value="" class="disenable_unPress" />
+                    <input id="Button6" type="button" value="" class="edite_unPress" />
+                    <input id="Button7" type="button" value="" class="delete_unPress" />&nbsp;						
+                </td>
+            </tr>
+            <tr class="height20">
+                <td style="width: 50px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 30px;"></td>
+                <td style="width: 170px;"></td>
+                <td style="width: 180px;"></td>
+                <td style="width: 175px"></td>
+                <td style="width: 55px"></td>
+                <td style="width: 110px"></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">3
+                </td>
+                <td class="roleQuli">
+                    <a href="" target="contentFrame">ChinaSys</a>
+                    <br />
+                    ChinaSys
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">http://localhost:8080/TestCaseWS/services/ChinaSys?wsdl
+                </td>
+                <td class="tableContent">ChinaSys
+                </td>
+                <td class="tableContent" style="min-width: 70px">OA系统
+                </td>
+                <td class="tableContent" style="min-width: 50px">未使用					
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button8" type="button" value="" class="disenable_unPress" />
+                    <input id="Button9" type="button" value="" class="edite_unPress" />
+                    <input id="Button10" type="button" value="" class="delete_unPress" />&nbsp;
+                </td>
+            </tr>
+            <tr class="height20">
+                <td style="width: 50px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 30px;"></td>
+                <td style="width: 170px;"></td>
+                <td style="width: 180px;"></td>
+                <td style="width: 175px"></td>
+                <td style="width: 55px"></td>
+                <td style="width: 110px"></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">4
+                </td>
+                <td class="roleQuli">
+                    <a href="" target="contentFrame">FrenchSys</a>
+                    <br />
+                    FrenchSys
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">http://localhost:8080/TestCaseWS/services/FrenchSys?wsdl
+                </td>
+                <td class="tableContent">FrenchSys
+                </td>
+                <td class="tableContent" style="min-width: 70px">人力资源系统
+                </td>
+                <td class="tableContent" style="min-width: 50px">未使用					
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button11" type="button" value="" class="disenable_unPress" />
+                    <input id="Button12" type="button" value="" class="edite_unPress" />
+                    <input id="Button13" type="button" value="" class="delete_unPress" />&nbsp;
+                </td>
+            </tr>
+            <tr class="height20">
+                <td style="width: 50px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 30px;"></td>
+                <td style="width: 170px;"></td>
+                <td style="width: 180px;"></td>
+                <td style="width: 175px"></td>
+                <td style="width: 55px"></td>
+                <td style="width: 110px"></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">5
+                </td>
+                <td class="roleQuli">
+                    <a href="" target="contentFrame">HRMgr</a>
+                    <br />
+                    HRMgr
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">http://localhost:8080/TestCaseWS/services/HRMgr?wsdl
+                </td>
+                <td class="tableContent">HRMgr
+                </td>
+                <td class="tableContent" style="min-width: 70px">人力资源系统
+                </td>
+                <td class="tableContent" style="min-width: 50px">未使用					
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button14" type="button" value="" class="disenable_unPress" />
+                    <input id="Button15" type="button" value="" class="edite_unPress" />
+                    <input id="Button16" type="button" value="" class="delete_unPress" />
+                </td>
+            </tr>
+            <tr class="height20">
+                <td style="width: 50px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 30px;"></td>
+                <td style="width: 170px;"></td>
+                <td style="width: 180px;"></td>
+                <td style="width: 175px"></td>
+                <td style="width: 55px"></td>
+                <td style="width: 110px"></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">6
+                </td>
+                <td class="roleQuli">
+                    <a href="" target="contentFrame">HealthWS</a>
+                    <br />
+                    HealthWS
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">http://localhost:8080/TestCaseWS/services/HealthWS?wsdl
+                </td>
+                <td class="tableContent">HealthWS
+                </td>
+                <td class="tableContent" style="min-width: 70px">人力资源系统
+                </td>
+                <td class="tableContent" style="min-width: 50px">未使用						
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button17" type="button" value="" class="disenable_unPress" />
+                    <input id="Button18" type="button" value="" class="edite_unPress" />
+                    <input id="Button19" type="button" value="" class="delete_unPress" />&nbsp;
+                </td>
+            </tr>
+            <tr class="height20">
+                <td style="width: 50px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 30px;"></td>
+                <td style="width: 170px;"></td>
+                <td style="width: 180px;"></td>
+                <td style="width: 175px"></td>
+                <td style="width: 55px"></td>
+                <td style="width: 110px"></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">7
+                </td>
+                <td class="roleQuli">
+                    <a href="" target="contentFrame">MobileCodeWS</a>
+                    <br />
+                    MobileCodeWS
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl
+                </td>
+                <td class="tableContent">MobileCodeWS
+                </td>
+                <td class="tableContent" style="min-width: 70px">综合项目管理系统
+                </td>
+                <td class="tableContent" style="min-width: 50px">未使用						
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button20" type="button" value="" class="disenable_unPress" />
+                    <input id="Button21" type="button" value="" class="edite_unPress" />
+                    <input id="Button22" type="button" value="" class="delete_unPress" />&nbsp;
+                </td>
+            </tr>
+            <tr class="height20">
+                <td style="width: 50px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 30px;"></td>
+                <td style="width: 170px;"></td>
+                <td style="width: 180px;"></td>
+                <td style="width: 175px"></td>
+                <td style="width: 55px"></td>
+                <td style="width: 110px"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

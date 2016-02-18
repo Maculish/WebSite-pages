@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSolution", ".", "{A2DB4C4C-1B12-4B86-83D1-8BA206C8EFBC}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/WebSolution"
+		Debug.AspNetCompiler.PhysicalPath = "..\WebSolution\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSolution\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebSolution"
+		Release.AspNetCompiler.PhysicalPath = "..\WebSolution\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSolution\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50654"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Html20141215", "..\Html20141215\", "{7D094D5B-A729-49EF-87D9-2FA6F508C12B}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Html20141215"
+		Debug.AspNetCompiler.PhysicalPath = "..\Html20141215\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Html20141215\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Html20141215"
+		Release.AspNetCompiler.PhysicalPath = "..\Html20141215\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Html20141215\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "11303"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2DB4C4C-1B12-4B86-83D1-8BA206C8EFBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2DB4C4C-1B12-4B86-83D1-8BA206C8EFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D094D5B-A729-49EF-87D9-2FA6F508C12B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D094D5B-A729-49EF-87D9-2FA6F508C12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

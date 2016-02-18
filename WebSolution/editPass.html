@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <style type="text/css">
+        .textBoxStyle {
+            height: 25px;
+            line-height:25px;
+            width: 260px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .fontStyle {
+            color: #000;
+            text-align: left;
+            vertical-align: central;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop10">
+        <table style="width: 380px; margin: auto auto">
+            <tr>
+                <td colspan="2">
+                    <table style="width: 100%">
+                        <tr>
+                            <td class="fontStyle" style="width: 20%">旧密码
+                            </td>
+                            <td>
+                                <input type="password" name="password.original" size="40" maxlength="32" id="savePass_password_original" class="textBoxStyle" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fontStyle">新密码
+                            </td>
+                            <td>
+                                <input type="password" name="password.newness" size="40" maxlength="32" id="savePass_password_newness" class="textBoxStyle" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fontStyle">确认密码
+                            </td>
+                            <td>
+                                <input type="password" name="password.confirm" size="40" maxlength="32" id="savePass_password_confirm" class="textBoxStyle" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height: 10px">
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align: center"></td>
+                <td style="text-align: center; width: 85%">
+                    <input type="button" id="savePass_0" class="save_unPress" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="button" class="return_unPress" onclick="location.href = ''" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

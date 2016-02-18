@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/num.css" type="text/css" />
+</head>
+<body>
+    <div style="width: 100%; margin: 30px auto auto auto">
+        <table style="width: 650px; margin: auto auto">
+            <tr>
+                <td class="head" style="width: 150px">服务名称（中文）
+                </td>
+                <td class="cent">
+                    <input type="text" name="service.zhName" size="120" maxlength="30" value="" id="saveWs_service_zhName" class="input400" style="height: 25px; line-height: 25px" />
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td class="head" style="width: 150px">服务名称（英文）
+                </td>
+                <td class="cent">
+                    <input type="text" name="service.enName" size="120" maxlength="30" value="" id="saveWs_service_enName" class="input400" style="height: 25px; line-height: 25px" />
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td class="head">服务地址
+                </td>
+                <td class="cent">
+                    <textarea name="service.url" cols="50" rows="5" id="saveWs_service_url" class="input400"></textarea>
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td class="head">服务简介
+                </td>
+                <td class="cent">
+                    <textarea name="service.note" cols="50" rows="10" id="saveWs_service_note" class="input400"></textarea>
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td class="head">所属系统
+                </td>
+                <td class="cent">
+                    <select name="service.remoteSysId" id="saveWs_service_remoteSysId" class="input180">
+                        <option value="1">人力资源系统</option>
+                        <option value="2">获取人员信息的业务系统</option>
+                        <option value="3">全球健康查询服务 </option>
+                        <option value="4">国家健康查询代理服务</option>
+                        <option value="7">OA系统</option>
+                        <option value="8">用友HR系统</option>
+                        <option value="9">综合项目管理系统</option>
+
+
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="height: 50px">
+                    <div style="margin: 25px auto auto auto; width: 150px">
+                        <table>
+                            <tr>
+                                <td style="width:150px;text-align:center">
+                                    <input id="Button1" class="save_unPress" type="button" /></td>
+                                <td style="width:150px;text-align:center">
+                                    <input id="Button3" class="saveWs_unPress" type="button" /></td>
+                                <td style="width:150px;text-align:center">
+                                    <input id="Button2" class="return_unPress" type="button" onclick="return2last()" />
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

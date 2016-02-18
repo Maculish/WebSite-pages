@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/num.css" type="text/css" rel="stylesheet" />
+    <title></title>
+    <style type="text/css">
+        .searchTextStyle {
+            width: 155px;
+            height: 28px;
+            line-height: 28px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .searchTitleStyle {
+            vertical-align: central;
+            width: 120px;
+            padding-left: 20px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .searchTextTdStyle {
+            text-align: left;
+            vertical-align: central;
+            width: 140px;
+        }
+
+        .searchTd {
+            text-align: center;
+            vertical-align: central;
+            width: 120px;
+        }
+
+        .menuStyle {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bodyStyle" style="font-family: 'Microsoft YaHei UI';">
+    <div class="marginTop30">
+        <table style="margin: auto auto">
+            <tr>
+                <td class="searchTitleStyle">操作时间（起）</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.startTime" value="" id="startTime" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" class="searchTextStyle" /></td>
+                <td class="searchTitleStyle">操作时间（止）</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.endTime" value="" id="endTime"  onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" class="searchTextStyle" /></td>
+                <td rowspan="4" class="searchTd">
+                    <input id="Button1" type="button" class="search_unPress" /></td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">员工姓名</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name" size="16" maxlength="8" value="" id="seeWeb_webLog_name" class="searchTextStyle" /></td>
+                <td class="searchTitleStyle">员工编号</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name0" size="16" maxlength="8" value="" id="seeWeb_webLog_name0" class="searchTextStyle" /></td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">手机号码</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name1" size="16" maxlength="8" value="" id="seeWeb_webLog_name1" class="searchTextStyle" /></td>
+                <td class="searchTitleStyle">操作模块</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name2" size="16" maxlength="8" value="" id="seeWeb_webLog_name2" class="searchTextStyle" /></td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">操作菜单</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name3" size="16" maxlength="8" value="" id="seeWeb_webLog_name3" class="searchTextStyle" /></td>
+                <td class="searchTitleStyle">操作页面</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name4" size="16" maxlength="8" value="" id="seeWeb_webLog_name4" class="searchTextStyle" /></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="marginTop30">
+        <table style="width: 100%; margin: auto auto" class="tableBorderStyle">
+            <tr>
+                <td class="tableContentEndsHead" style="width: 5%">编号</td>
+                <td class="tableContentHead" style="width: 11%">操作时间</td>
+                <td class="tableContentHead" colspan="2">员工姓名</td>
+                <td class="tableContentHead" style="width: 12%">员工编号</td>
+                <td class="tableContentHead" style="width: 12%">手机号码</td>
+                <td class="tableContentHead" style="width: 12%">操作模块</td>
+                <td class="tableContentHead" style="width: 12%">操作菜单</td>
+                <td class="tableContentHead" style="width: 14%">操作页面</td>
+                <td class="tableContentHead">操作动作</td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">1
+                </td>
+                <td class="roleQuli">2014-09-20 14:30:55
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">日志管理
+                </td>
+                <td class="tableContent">查看操作日志
+                </td>
+                <td class="tableContent">操作日志列表画面
+                </td>
+                <td class="tableContent">查看列表
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">2
+                </td>
+                <td class="roleQuli">2014-09-20 14:26:38
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">日志管理
+                </td>
+                <td class="tableContent">查看系统日志
+                </td>
+                <td class="tableContent">系统日志列表画面
+                </td>
+                <td class="tableContent">查看列表
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">3
+                </td>
+                <td class="roleQuli">2014-09-20 14:26:35
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">日志管理
+                </td>
+                <td class="tableContent">查看系统日志
+                </td>
+                <td class="tableContent">系统日志列表画面
+                </td>
+                <td class="tableContent">查看列表
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">4
+                </td>
+                <td class="roleQuli">2014-09-20 14:20:46
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">业务管理
+                </td>
+                <td class="tableContent">查看业务流
+                </td>
+                <td class="tableContent">业务流列表画面
+                </td>
+                <td class="tableContent">查看列表
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">5
+                </td>
+                <td class="roleQuli">2014-09-20 14:20:43
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">业务管理
+                </td>
+                <td class="tableContent">查看业务流
+                </td>
+                <td class="tableContent">业务流列表画面
+                </td>
+                <td class="tableContent">查看列表
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">6
+                </td>
+                <td class="roleQuli">2014-09-20 14:17:25
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">业务管理
+                </td>
+                <td class="tableContent">增加业务流
+                </td>
+                <td class="tableContent">增加业务流画面
+                </td>
+                <td class="tableContent">增加
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">7
+                </td>
+                <td class="roleQuli">2014-09-20 14:17:05
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">业务管理
+                </td>
+                <td class="tableContent">增加业务流
+                </td>
+                <td class="tableContent">增加业务流画面
+                </td>
+                <td class="tableContent">增加
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">8
+                </td>
+                <td class="roleQuli">2014-09-20 14:16:59
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">业务管理
+                </td>
+                <td class="tableContent">查看应用模式
+                </td>
+                <td class="tableContent">应用模式列表画面
+                </td>
+                <td class="tableContent">查看列表
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">9
+                </td>
+                <td class="roleQuli">2014-09-20 14:15:02
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">业务管理
+                </td>
+                <td class="tableContent">查看应用模式
+                </td>
+                <td class="tableContent">应用模式列表画面
+                </td>
+                <td class="tableContent">查看列表
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">10
+                </td>
+                <td class="roleQuli">2014-09-20 14:11:21
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">超级管理员
+                </td>
+                <td class="tableContent"></td>
+                <td class="tableContent"></td>
+                <td class="tableContent">服务管理
+                </td>
+                <td class="tableContent">查看服务
+                </td>
+                <td class="tableContent">服务列表画面
+                </td>
+                <td class="tableContent">查看列表
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共3098条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			19
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left" name="D1">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

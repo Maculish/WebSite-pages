@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/num.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .tableStyle {
+            width: 750px;
+            margin: auto auto;
+            border-collapse: collapse;
+            border-spacing: 0px;
+            font-family: 'Microsoft YaHei';
+            color: #000;
+            background: none;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop30">
+        <table class="tableStyle">
+            <tr>
+                <td class="paddingTop10Head" style="width: 15%; padding-top: 0; padding-bottom: 0;">应用模式
+                </td>
+                <td></td>
+                <td class="paddingTop10">普通模式
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="paddingTop10Head" style="width: 15%; vertical-align: top">模式说明
+                </td>
+                <td class="rectangletd">
+                    <img class="rectangleImg" src="img/rectangle.png" /></td>
+                <td class="tableContent">普通模式是指，调用方系统通过集成平台间接访问1个或多个服务生产者的webservice，即：集成平台通过本地webservice接收调用方系统的调用请求，本地webservice会将调用请求直接转发给1个或多个服务生产者webservice；集成平台自身只负责转发调用，不做任何数据处理。规则要求：调用方系统调用的集成平台本地webservice的接口方法定义，必须与服务生产者的webservice的相应接口方法定义完全相同。
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center; padding-top: 10px; padding-bottom: 10px">
+                    <img src='img/common-pattern.png' />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop30">
+        <table class="tableStyle">
+            <tr>
+                <td class="paddingTop10Head" style="width: 15%; padding-top: 0; padding-bottom: 0;">应用模式
+                </td>
+                <td></td>
+                <td class="paddingTop10">远程回调模式
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="paddingTop10Head" style="width: 15%; vertical-align: top">模式说明
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">回调模式是指，外系统的通知模块调用集成平台，集成平台接收调用请求后，调用外系统的服务模块webservice，将调用返回结果写入本地数据库缓存表。规则要求：通知模块调用的集成平台本地webservice的接口方法定义，必须与服务模块的webservice的相应接口方法定义完全相同。
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center; padding-top: 10px; padding-bottom: 10px">
+                    <img src='img/callback-pattern.png' />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop30">
+        <table class="tableStyle">
+            <tr>
+                <td class="paddingTop10Head" style="width: 15%; padding-top: 0; padding-bottom: 0;">应用模式
+                </td>
+                <td></td>
+                <td class="paddingTop10">本地调用模式
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="paddingTop10Head" style="vertical-align: top">模式说明
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">本地模式是指，调用方系统调用集成平台，集成平台接收到调用请求后，读本地数据库缓存，如果本地缓存有数据则直接返回给调用方系统；如果本地缓存没有数据，则调用服务生产者webservice，将调用返回结果返回给调用方系统。规则要求：调用方系统调用的集成平台本地webservice的接口方法定义，必须与服务生产者的webservice的相应接口方法定义完全相同。
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center; padding-top: 10px; padding-bottom: 10px" class="imgTD">
+                    <img src='img/local-pattern.png' />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

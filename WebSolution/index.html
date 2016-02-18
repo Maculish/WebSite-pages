@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#LoginButton").mousedown(function () {
+                $("#LoginButton").attr("src", "img/Login_press.png");
+            });
+            $("#LoginButton").mouseup(function () {
+                $("#LoginButton").attr("src", "img/Login_unpress.png");
+            });
+            $("#remePws").click(function () {
+                var pClass = $("#RememberPwd").attr("class");
+                var pwdClass, pwdValueClass;
+                if (pClass == "uncheckbox") {
+                    pwdClass = "checkbox"; pwdValueClass = "checkvalue";
+                } else {
+                    pwdClass = "uncheckbox"; pwdValueClass = "uncheckvalue";
+                }
+                $("#RememberPwd").removeClass();
+                $("#RememberPwdValue").removeClass();
+                $("#RememberPwd").addClass(pwdClass);
+                $("#RememberPwdValue").addClass(pwdValueClass);
+            });
+            $("#autoLog").click(function () {
+                var pClass = $("#AutoLogin").attr("class");
+                var pwdClass, pwdValueClass;
+                if (pClass == "uncheckbox") {
+                    pwdClass = "checkbox"; pwdValueClass = "checkvalue";
+                } else {
+                    pwdClass = "uncheckbox"; pwdValueClass = "uncheckvalue";
+                }
+                $("#AutoLogin").removeClass();
+                $("#AutoLoginValue").removeClass();
+                $("#AutoLogin").addClass(pwdClass);
+                $("#AutoLoginValue").addClass(pwdValueClass);
+                //$("#AutoLogin").css("class", pwdClass);
+                //$("#AutoLoginValue").css("class", pwdValueClass);
+
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function alertMsg(msg, mode) { //mode为空，即只有一个确认按钮，mode为1时有确认和取消两个按钮
+            msg = msg || '';
+            mode = mode || 0;
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            var isIe = (document.all) ? true : false;
+            var isIE6 = isIe && !window.XMLHttpRequest;
+            var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var sLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+            var winSize = function () {
+                var xScroll, yScroll, windowWidth, windowHeight, pageWidth, pageHeight;
+                // innerHeight获取的是可视窗口的高度，IE不支持此属性
+                if (window.innerHeight && window.scrollMaxY) {
+                    xScroll = document.body.scrollWidth;
+                    yScroll = window.innerHeight + window.scrollMaxY;
+                } else if (document.body.scrollHeight > document.body.offsetHeight) { // all but Explorer Mac
+                    xScroll = document.body.scrollWidth;
+                    yScroll = document.body.scrollHeight;
+                } else { // Explorer Mac...would also work in Explorer 6 Strict, Mozilla and Safari
+                    xScroll = document.body.offsetWidth;
+                    yScroll = document.body.offsetHeight;
+                }
+
+                if (self.innerHeight) {    // all except Explorer
+                    windowWidth = self.innerWidth;
+                    windowHeight = self.innerHeight;
+                } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
+                    windowWidth = document.documentElement.clientWidth;
+                    windowHeight = document.documentElement.clientHeight;
+                } else if (document.body) { // other Explorers
+                    windowWidth = document.body.clientWidth;
+                    windowHeight = document.body.clientHeight;
+                }
+
+                // for small pages with total height less then height of the viewport
+                if (yScroll < windowHeight) {
+                    pageHeight = windowHeight;
+                } else {
+                    pageHeight = yScroll;
+                }
+
+                // for small pages with total width less then width of the viewport
+                if (xScroll < windowWidth) {
+                    pageWidth = windowWidth;
+                } else {
+                    pageWidth = xScroll;
+                }
+
+                return {
+                    'pageWidth': pageWidth,
+                    'pageHeight': pageHeight,
+                    'windowWidth': windowWidth,
+                    'windowHeight': windowHeight
+                }
+            }();
+            //alert(winSize.pageWidth);
+            //遮罩层
+            var styleStr = 'top:0;left:0;position:absolute;z-index:10000;background:#666;width:' + winSize.pageWidth + 'px;height:' + (winSize.pageHeight + 30) + 'px;';
+            styleStr += (isIe) ? "filter:alpha(opacity=70);" : "opacity:0.7;"; //遮罩层DIV
+            var shadowDiv = document.createElement('div'); //添加阴影DIV
+            shadowDiv.style.cssText = styleStr; //添加样式
+            shadowDiv.id = "shadowDiv";
+            //如果是IE6则创建IFRAME遮罩SELECT
+            if (isIE6) {
+                var maskIframe = document.createElement('iframe');
+                maskIframe.style.cssText = 'width:' + winSize.pageWidth + 'px;height:' + (winSize.pageHeight + 30) + 'px;position:absolute;visibility:inherit;z-index:-1;filter:alpha(opacity=0);';
+                maskIframe.frameborder = 0;
+                maskIframe.src = "about:blank";
+                shadowDiv.appendChild(maskIframe);
+            }
+            document.body.insertBefore(shadowDiv, document.body.firstChild); //遮罩层加入文档
+            //弹出框
+            var styleStr1 = 'display:block;position:fixed;_position:absolute;left:' + (winSize.windowWidth / 2 - 200) + 'px;top:' + (winSize.windowHeight / 2 - 150) + 'px;_top:' + (winSize.windowHeight / 2 + top - 150) + 'px;'; //弹出框的位置
+            var alertBox = document.createElement('div');
+            alertBox.id = 'alertMsg';
+            alertBox.style.cssText = styleStr1;
+            //创建弹出框里面的内容P标签
+            var alertMsg_info = document.createElement('P');
+            alertMsg_info.id = 'alertMsg_info';
+            //添加提示内容的样式
+            //var msgStyle = 'margin:auto auto;color:#293953;width:80%; font-family: "Microsoft YaHei";font-size: medium';
+            //alertMsg_info.style.cssText = msgStyle;
+            alertMsg_info.innerHTML = msg;
+            alertBox.appendChild(alertMsg_info);
+            //创建按钮
+            var btn1 = document.createElement('a');
+            btn1.id = 'alertMsg_btn1';
+            btn1.href = 'javas' + 'cript:void(0)';
+            btn1.innerHTML = '<cite>确定</cite>';
+            btn1.onclick = function () {
+                document.body.removeChild(alertBox);
+                document.body.removeChild(shadowDiv);
+                return true;
+            };
+            alertBox.appendChild(btn1);
+            if (mode === 1) {
+                var btn2 = document.createElement('a');
+                btn2.id = 'alertMsg_btn2';
+                btn2.href = 'javas' + 'cript:void(0)';
+                btn2.innerHTML = '<cite>取消</cite>';
+                btn2.onclick = function () {
+                    document.body.removeChild(alertBox);
+                    document.body.removeChild(shadowDiv);
+                    return false;
+                };
+                alertBox.appendChild(btn2);
+            }
+            document.body.appendChild(alertBox);
+
+        }
+    </script>
+    <style type="text/css">
+        .bodyStyle {
+            height: 100%;
+            background: #f2f2f1;
+            font-family: "Microsoft YaHei UI" "Microsoft YaHei";
+            color: #000;
+            font-size: medium;
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            background: url('img/login.bg.jpg') no-repeat;
+            /*position: absolute;*/
+            zoom: 1;
+        }
+
+        .fontStyle {
+            font-family: 'Microsoft YaHei';
+            color: #a6acae;
+            font-size: medium;
+            text-decoration: none;
+            line-height: normal;
+        }
+
+        .linkDiv {
+            position: absolute;
+            width: 420px;
+            height: 30px;
+            min-width: 420px;
+            min-height: 30px;
+            top: 10%;
+            right: 5%;
+        }
+
+        .linkDivStyle {
+            display: inline;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .imgStyle {
+            position: absolute;
+            height: 95%;
+            width: 100%;
+            min-height: 95%;
+            min-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            /*background: #22449B;*/
+            background: url('img/login.bg.jpg') no-repeat;
+            text-align: center;
+        }
+
+        .footerStyle {
+            position: absolute;
+            width: 100%;
+            height: 5%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .fontStyle {
+            font-family: 'Microsoft YaHei';
+            color: #8bb6ee;
+            font-size: medium;
+            text-decoration: none;
+            line-height: normal;
+        }
+
+        .userNameStyle {
+            height: 82px;
+            width: 260px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+        }
+
+        .userPwdStyle {
+            height: 82px;
+            width: 260px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+
+        .loginButtonStyle {
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            top: 21px;
+            left: 230px;
+        }
+
+            .loginButtonStyle:hover {
+                cursor: pointer;
+            }
+
+        .usrNameTextStyle {
+            height: 35px;
+            width: 200px;
+            padding-left: 8px;
+            line-height: 35px;
+            left: 10px;
+            top: 3px;
+            /*background: none;*/
+            background-color:#293953;
+            border: none;
+            font-family: 'Microsoft YaHei';
+            color: #accffd;
+            font-size: medium;
+            position: absolute;
+        }
+
+        .usrPwdTextStyle {
+            height: 35px;
+            width: 200px;
+            padding-left: 8px;
+            line-height: 35px;
+            left: 10px;
+            top: 45px;
+            background-color:#293953;
+            border: none;
+            font-family: 'Microsoft YaHei';
+            color: #accffd;
+            font-size: medium;
+            position: absolute;
+        }
+
+        .logoStyle {
+            height: 250px;
+            width: 420px;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -210px;
+            position: absolute;
+        }
+
+        .inputDiv {
+            width: 270px;
+            height: 82px;
+            left: 50%;
+            margin-left: -135px;
+            top: 50%;
+            margin-top: 50px;
+            position: absolute;
+        }
+
+        .checkPwsStyle {
+            top: 85px;
+            left: 20px;
+            margin-top: 22px;
+            /*color: #293953;*/
+            font-size: 0.8em;
+            cursor: pointer;
+            text-align: center;
+            line-height: 120%;
+            /*background-color: #293953;*/
+            position: absolute;
+            /*right: 230px;*/
+        }
+
+        .uncheckbox {
+            height: 10px;
+            width: 10px;
+            border: solid 3px #293953;
+            background: #293953;
+            float: left;
+        }
+
+        .uncheckvalue {
+            float: left;
+            color: #293953;
+            padding-left: 20px;
+        }
+
+        .checkbox {
+            height: 10px;
+            width: 10px;
+            border: solid 3px #293953;
+            background: #accffd;
+            float: left;
+        }
+
+        .checkvalue {
+            float: left;
+            color: #accffd;
+            padding-left: 20px;
+        }
+
+        .checkLoginStyle {
+            top: 85px;
+            right: 40px;
+            margin-top: 22px;
+            /*color: #293953;*/
+            cursor: pointer;
+            text-align: center;
+            line-height: 120%;
+            font-size: 0.8em;
+            position: absolute;
+        }
+    </style>
+    <style type="text/css">
+        #alertMsg {
+            display: none;
+            width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 1px 1px 10px black;
+            padding: 10px;
+            font-size: 12px;
+            position: absolute;
+            text-align: center;
+            background: #fff;
+            z-index: 100000;
+        }
+
+        #alertMsg_info {
+            font-family: "Microsoft YaHei";
+            padding: 2px 15px;
+            line-height: 1.6em;
+            text-align: left;
+            color: #293953;
+        }
+
+        #alertMsg_btn1, #alertMsg_btn2 {
+            display: inline-block;
+            background: #293953 left top;
+            padding-left: 3px;
+            color: #fff;
+            font-size: 12px;
+            text-decoration: none;
+            margin-right: 10px;
+            cursor: pointer;
+            font-family: 'Microsoft YaHei';
+        }
+
+            #alertMsg_btn1 cite, #alertMsg_btn2 cite {
+                line-height: 24px;
+                display: inline-block;
+                padding: 0 13px 0 10px;
+                background: #293953 right top;
+                font-style: normal;
+                font-family: 'Microsoft YaHei';
+            }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div style="width: 100%; height: 100%; background: url('img/login_bg.jpg'); position: absolute">
+    </div>
+    <div class="imgStyle">
+        <img src="img/login_bglogo.png" style="height: 100%; min-height: 500px; width: auto; margin: auto auto" />
+
+    </div>
+    <div id="linkDiv" class="linkDiv">
+        <div class="linkDivStyle"><a class="fontStyle" href="">常见问题解答</a></div>
+        <div class="linkDivStyle"><a class="fontStyle" href="">联系我们</a></div>
+        <div class="linkDivStyle"><a class="fontStyle" href="">服务条款</a></div>
+        <div class="linkDivStyle"><a class="fontStyle" href="">隐私条款</a></div>
+    </div>
+    <div class="footerStyle">
+        <img src="img/bg_footer.jpg" style="height: 100%; width: 100%" />
+        <div class="fontStyle" style="width: 100%; height: 100%; color: #465d83; margin: auto auto; top: 30%; position: absolute; bottom: 0; text-align: center; vertical-align: central">这里写上平台版本号，字体为微软雅黑，字号 medium</div>
+    </div>
+
+    <div class="logoStyle">
+        <img src="img/login_logo.png" style="width: 420px; height: 250px" />
+    </div>
+    <div class="inputDiv">
+        <img src="img/bg_UserName.png" class="userNameStyle" />
+        <img src="img/bg_UserPwd.png" class="userPwdStyle" />
+        <img id="LoginButton" src="img/Login_unpress.png" class="loginButtonStyle" onclick="alertMsg('这里写上验证提示信息：XXX不正确')" />
+        <input id="userNameText" class="usrNameTextStyle" type="text" value="UserName" autocomplete="off" />
+        <input id="userPwdText" class="usrPwdTextStyle" type="text" value="PassWord" autocomplete="off"/>
+        <div id="remePws" class="checkPwsStyle">
+            <div id="RememberPwd" class="uncheckbox"></div>
+            <div id="RememberPwdValue" class="uncheckvalue">记住密码</div>
+        </div>
+        <div id="autoLog" class="checkLoginStyle">
+            <div id="AutoLogin" class="uncheckbox"></div>
+            <div id="AutoLoginValue" class="uncheckvalue">自动登录</div>
+        </div>
+    </div>
+</body>
+</html>

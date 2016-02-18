@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <title></title>
+    <style type="text/css"></style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop30">
+        <table style="width: 800px; margin: auto auto">
+            <tr>
+                <td class="head">数据源名称：</td>
+                <td>
+                    <input type="text" size="16" maxlength="8" value="" class="input150" /></td>
+                <td class="head">所属系统：</td>
+                <td>
+                    <select class="inputNoWidth" name="D1" style="height: 28px">
+                        <option value="0"></option>
+                        <option value="1">人力资源系统</option>
+                        <option value="2">获取人员信息的业务系统</option>
+                        <option value="3">全球健康查询服务 </option>
+                        <option value="4">国家健康查询代理服务</option>
+                        <option value="7">OA系统</option>
+                        <option value="8">用友HR系统</option>
+                        <option value="9">综合项目管理系统</option>
+                    </select></td>
+                <td rowspan="4">
+                    <input id="Button10" type="button" class="search_unPress" value="" onmousedown="searchonMouseDown(this)" onmouseup="searchonMouseUp(this)" />
+                </td>
+            </tr>
+            <tr>
+                <td class="head">IP地址：</td>
+                <td>
+                    <input type="text" size="16" maxlength="8" value="" class="input150" /></td>
+                <td class="head">状态：</td>
+                <td>
+                    <select class="inputNoWidth" name="D2" style="height: 28px">
+                        <option value="0"></option>
+                        <option value="1">人力资源系统</option>
+                        <option value="2">获取人员信息的业务系统</option>
+                        <option value="3">全球健康查询服务 </option>
+                        <option value="4">国家健康查询代理服务</option>
+                        <option value="7">OA系统</option>
+                        <option value="8">用友HR系统</option>
+                        <option value="9">综合项目管理系统</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td class="head" rowspan="2">数据源简介：</td>
+                <td rowspan="2">
+                    <textarea id="see_note" rows="4" style="width: 150px" class="inputNoWidth"></textarea></td>
+                <td class="head">数据库类型
+										：</td>
+                <td>
+                    <select class="inputNoWidth" name="D3" style="height: 28px">
+                        <option value="0"></option>
+                        <option value="1">人力资源系统</option>
+                        <option value="2">获取人员信息的业务系统</option>
+                        <option value="3">全球健康查询服务 </option>
+                        <option value="4">国家健康查询代理服务</option>
+                        <option value="7">OA系统</option>
+                        <option value="8">用友HR系统</option>
+                        <option value="9">综合项目管理系统</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td class="head">数据源类型：</td>
+                <td>
+                    <select class="inputNoWidth" name="D4" style="height: 28px">
+                        <option value="0"></option>
+                        <option value="1">人力资源系统</option>
+                        <option value="2">获取人员信息的业务系统</option>
+                        <option value="3">全球健康查询服务 </option>
+                        <option value="4">国家健康查询代理服务</option>
+                        <option value="7">OA系统</option>
+                        <option value="8">用友HR系统</option>
+                        <option value="9">综合项目管理系统</option>
+                    </select></td>
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop10">
+        <div style="width: 100%; background-color: #fff">
+            <table style="width: 900px; margin: auto auto" class="tableBorderStyle">
+                <tr>
+                    <td class="tableContentEndsHead" style="width: 5%">编号
+                    </td>
+                    <td class="tableContentHead" style="width: 14%">数据源名称
+                    </td>
+                    <td class="tableContentHead" style="width: 5%"></td>
+                    <td class="tableContentHead" style="width: 22%">URL
+                    </td>
+                    <td class="tableContentHead" style="width: 28%">数据源简介
+                    </td>
+                    <td class="tableContentHead" style="width: 10%">所属系统
+                    </td>
+                    <td class="tableContentHead" style="width: 7%">状态
+                    </td>
+                    <td class="tableContentEndsHead">操作
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table class="tableBorderStyle" style="width: 900px; margin: auto auto; table-layout: fixed">
+
+            <tr class="height20">
+                <td style="width: 5%">&nbsp;</td>
+                <td style="width: 14%">&nbsp;</td>
+                <td style="width: 5%">&nbsp;</td>
+                <td style="width: 22%">&nbsp;</td>
+                <td style="width: 28%">&nbsp;</td>
+                <td style="width: 10%">&nbsp;</td>
+                <td style="width: 7%">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td class="tableContentNum" style="width: 5%">1
+                </td>
+                <td class="roleQuli" style="width: 14%">XXXXXXXX数据库（源数据库）
+                </td>
+                <td class="rectangletd" style="width: 5%">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent" style="width: 22%">jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=gbk
+                </td>
+                <td class="tableContentCenter4Bg" style="width: 28%">XXXXXXXXXXXXX
+                </td>
+                <td class="tableContent" style="width: 10%">人力资源系统
+                </td>
+                <td class="tableContent" style="width: 7%">已使用
+                </td>
+                <td class="tableContentEdit">
+                    <div style="width: 60px; margin: auto auto">
+                        <div style="width: 30px; float: left">
+                            <input id="Button6" type="button" value="" class="edite_unPress" onclick=" link2Next('editDs.html')" onmousedown="editonMouseDown(this);" onmouseup="editonMouseUp(this);" />
+                            <div class="iconLable">编辑</div>
+                        </div>
+                        <div style="width: 30px; float: left">
+                            <input id="Button7" type="button" value="" class="delete_unPress" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" />
+                            <div class="iconLable">删除</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr class="height20">
+                <td style="width: 5%">&nbsp;</td>
+                <td style="width: 14%">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td style="width: 25%">&nbsp;</td>
+                <td style="width: 30%">&nbsp;</td>
+                <td style="width: 10%">&nbsp;</td>
+                <td style="width: 7%">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td class="tableContentNum">2
+                </td>
+                <td class="roleQuli">XXXXXXXX数据库（集成数据库）
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=gbk
+                </td>
+                <td class="tableContent">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                </td>
+                <td class="tableContent">人力资源系统
+                </td>
+                <td class="tableContent">未使用
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button4" type="button" value="" class="edite_unPress" />
+                    <input id="Button5" type="button" value="" class="delete_unPress" />
+                </td>
+            </tr>
+
+            <tr class="height20">
+                <td style="width: 5%">&nbsp;</td>
+                <td style="width: 14%">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td style="width: 25%">&nbsp;</td>
+                <td style="width: 30%">&nbsp;</td>
+                <td style="width: 10%">&nbsp;</td>
+                <td style="width: 7%">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left" name="D1">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount" style="color: #fff">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/num.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        .searchTextStyle {
+            width: 155px;
+            height: 28px;
+            line-height: 28px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .searchTitleStyle {
+            vertical-align: central;
+            width: 120px;
+            text-align: right;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .searchTextTdStyle {
+            text-align: left;
+            vertical-align: central;
+            width: 140px;
+        }
+
+        .searchTd {
+            text-align: center;
+            vertical-align: central;
+            width: 120px;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div style="width: 100%; margin-top: 30px">
+        <table style="margin: auto auto">
+            <tr>
+                <td class="searchTitleStyle">开始时间</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.startTime" value="" id="startTime" class="searchTextStyle"  onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" /></td>
+                <td class="searchTitleStyle">结束时间</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.endTime" value="" id="endTime"  onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" class="searchTextStyle" /></td>
+                <td rowspan="2" class="searchTd">
+                    <input id="Button1" type="button" class="search_unPress" onmousedown=" searchonMouseDown(this)" onmouseup="searchonMouseUp(this)" />
+
+                </td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">规则名称</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name" size="16" maxlength="8" value="" id="seeWeb_webLog_name" class="searchTextStyle" /></td>
+                <td class="searchTitleStyle">所属系统</td>
+                <td class="searchTextTdStyle">
+                    <select name="muleLog" id="asdasd" class="searchTextStyle">
+                        <option value=""></option>
+                        <option value="人力资源系统">人力资源系统</option>
+                        <option value="获取人员信息的业务系统">获取人员信息的业务系统</option>
+                        <option value="全球健康查询服务 ">全球健康查询服务 </option>
+                        <option value="国家健康查询代理服务">国家健康查询代理服务</option>
+                        <option value="OA系统">OA系统</option>
+                        <option value="用友HR系统">用友HR系统</option>
+                        <option value="综合项目管理系统">综合项目管理系统</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">&nbsp;</td>
+                <td class="searchTextTdStyle">&nbsp;</td>
+                <td class="searchTitleStyle">&nbsp;</td>
+                <td class="searchTextTdStyle">&nbsp;</td>
+                <td class="searchTd">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">开始时间</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name3" size="16" maxlength="8" value="" id="seeWeb_webLog_name3" class="searchTextStyle"  onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" /></td>
+                <td class="searchTitleStyle">结束时间</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="webLog.name4" size="16" maxlength="8" value="" id="seeWeb_webLog_name4" class="searchTextStyle"  onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" /></td>
+                <td class="searchTd">
+                    <input id="Button2" class="delete_unPress" type="button" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop10">
+
+        <div style="width: 100%; background-color: #fff;">
+            <table class="tableBorderStyle" style="width: 840px; margin: auto auto; table-layout: fixed">
+                <tr>
+                    <td class="tableContentEndsHead" style="width: 5%" rowspan="2">编号</td>
+                    <td class="tableContentHead" style="width: 20%">请求时间</td>
+                    <td class="tableContentHead" style="width: 20%">规则名称</td>
+                    <td class="tableContentHead">源数据库</td>
+                    <td class="tableContentHead" rowspan="2">表名</td>
+                    <td class="tableContentEndsHead" style="width: 5%" rowspan="2">状态</td>
+                </tr>
+                <tr>
+                    <td class="tableContentHead">响应时间</td>
+                    <td class="tableContentHead">所属系统</td>
+                    <td class="tableContentHead">目标数据库</td>
+                </tr>
+            </table>
+        </div>
+        <table style="width: 840px; margin: auto auto; table-layout: fixed" class="tableBorderStyle">
+            <tr class="height20">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="tableContentNum" style="width: 5%" rowspan="2">1
+                </td>
+                <td class="rectangletd" rowspan="2">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent" style="width: 20%">2014-09-04 17:33:38
+                </td>
+                <td class="tableContent" style="width: 20%">XXXXXXXX
+                </td>
+                <td class="tableContent">目标库 XXXXXXXX
+                </td>
+                <td class="tableContent" rowspan="2">TABLE XXXXXXXX<br>
+                    共导入数据NNN条
+                </td>
+                <td class="tableContent" style="width: 5%" rowspan="2">正常
+                </td>
+            </tr>
+            <tr>
+                <td class="tableContent">2014-09-04 17:33:39
+                </td>
+                <td class="tableContent">获取人员信息的业务系统
+                </td>
+                <td class="tableContent">源数据库 XXXXXXXX
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="tableContentNum" rowspan="2">2
+                </td>
+                <td class="rectangletd" rowspan="2">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">2014-09-03 17:33:38
+                </td>
+                <td class="tableContent">XXXXXXXX
+                </td>
+                <td class="tableContent">目标库 XXXXXXXX
+                </td>
+                <td class="tableContent" rowspan="2">TABLE XXXXXXXX<br>
+                    共导入数据NNN条
+                </td>
+                <td class="tableContent" rowspan="2">正常
+                </td>
+            </tr>
+
+            <tr>
+                <td class="tableContent">2014-09-03 17:33:39
+                </td>
+                <td class="tableContent">获取人员信息的业务系统
+                </td>
+                <td class="tableContent">源数据库 XXXXXXXX
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left" name="D1">
+                            <option selected="selected" value="1">001</option>
+                            <option selected="selected" value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

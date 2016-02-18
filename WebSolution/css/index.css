@@ -1,0 +1,53 @@
+﻿
+.footDivStyle {
+    background-image: url('../img/bg_footer.jpg');
+    background-repeat: repeat-x;
+    z-index: 1;
+    margin-top: -5px;
+}
+
+.logionButtonStyle {
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+}
+
+.UserNameStyle {
+    background-color: transparent;
+    border: none;
+    font-family: 'Microsoft YaHei';
+    color: #a6acae;
+    font-size: medium;
+    padding-left: 20px;
+}
+
+.UserPwdStyle {
+    background-color: transparent;
+    border: none;
+    font-family: 'Microsoft YaHei';
+    color: #a6acae;
+    font-size: medium;
+    padding-left: 20px;
+}
+
+.fontStyle {
+    font-family: 'Microsoft YaHei';
+    color: #a6acae;
+    font-size: medium;
+    text-decoration: none;
+    line-height: normal;
+}
+
+.footerStyle {
+    margin: auto auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    vertical-align: central;
+}
+
+.linkDivStyle {
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+}

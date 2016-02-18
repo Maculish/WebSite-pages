@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Button1").click(function () {
+                alert('ok');
+                //alert($(this).serialize());
+            });
+        }
+        //$("#Button1").click(function () {
+        //    alert('ok');
+        //    alert($("form").serialize());
+        //});
+        /*
+        function myTest(formId) {
+            var form = document.forms[formId];
+            alert($("form").serialize());
+            var data2s = $("#" + formId).val();
+            alert(form);
+            $.ajax({
+                url: form.action + "?" + new Date().getTime(),
+                type: 'POST',
+                //data:data2s,‍
+                //dataType:"json",
+                error: function () {
+                    alert('加载页面时出错,请重试！');
+                },
+                success: function (msg) {
+
+                    //这一行意义不大，这个主要是用来给出用户提示，说明提交成功与否
+
+                    // $("#content").empty().append(msg);
+
+                }
+            });
+        }
+        */
+    </script>
+</head>
+<body>
+    <form id="sform" action="副本 seeDbRelation.html">
+        <input id="Text2" type="text" />
+        <input id="Text1" type="text" />
+        <input id="Button1" type="button" value="button" />
+    </form>
+    <div></div>
+</body>
+</html>

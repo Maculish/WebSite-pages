@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <style type="text/css">
+        .tableStyle {
+            width: 620px;
+            margin: auto auto;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .leftmiddleTitle {
+            color: #000;
+            width: 200px;
+            text-align: left;
+            vertical-align: central;
+            font-weight: bold;
+        }
+
+        .rightmiddleTitle {
+            color: #000;
+            width: 420px;
+            text-align: left;
+            vertical-align: central;
+            font-weight: bold;
+        }
+
+        .inputTextStyle {
+            width: 400px;
+            height: 28px;
+            line-height: 28px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .leftTitleStyle {
+            color: #000;
+            width: 200px;
+            height: 30px;
+            text-align: left;
+            vertical-align: central;
+            font-weight: bold;
+            padding-bottom: 8px;
+        }
+
+        .rightTitleStyle {
+            color: #000;
+            width: 420px;
+            height: 30px;
+            text-align: left;
+            vertical-align: central;
+            font-weight: normal;
+            padding-bottom: 8px;
+        }
+
+        .selectStyle {
+            width: 175px;
+            text-align: left;
+            height: 28px;
+            line-height: 28px;
+            font-size: 1em;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .richTextStyle {
+            width: 400px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .subDivStyle {
+            margin: 20px auto;
+            width: 120px;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop10">
+        <table class="tableStyle">
+            <tr>
+                <td class="leftTitleStyle">数据源类型
+                </td>
+                <td class="rightTitleStyle">源数据库
+                </td>
+            </tr>
+            <tr>
+                <td width="30%" class="leftmiddleTitle">所属系统
+                </td>
+                <td class="rightmiddleTitle">
+                    <select class="selectStyle">
+                        <option value="1" title="人力资源系统">人力资源系统</option>
+                        <option value="2" title="获取人员信息的业务系统">获取人员信息的业务系统</option>
+                        <option value="3" title="全球健康查询服务">全球健康查询服务 </option>
+                        <option value="4" title="国家健康查询代理服务">国家健康查询代理服务</option>
+                        <option value="7" title="OA系统">OA系统</option>
+                        <option value="8" title="用友HR系统">用友HR系统</option>
+                        <option value="9" title="综合项目管理系统">综合项目管理系统</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">连接IP地址
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">连接数据库名称（英文）
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">连接端口
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">连接用户名
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">连接密码
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">数据库类型
+                </td>
+                <td class="rightmiddleTitle">
+                    <select class="selectStyle">
+                        <option value="1">MySQL</option>
+                        <option value="2">SQL Server</option>
+                        <option value="3">Oracle</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">数据库名称（中文）
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">数据库简介
+                </td>
+                <td class="rightmiddleTitle">
+                    <textarea cols="50" rows="4" class="richTextStyle"></textarea>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="marginTop30">
+        <table class="tableStyle">
+            <tr>
+                <td class="leftTitleStyle">数据源类型
+                </td>
+                <td class="rightTitleStyle">集成数据库
+                </td>
+            </tr>
+            <tr>
+                <td width="30%" class="leftmiddleTitle">连接IP地址&nbsp;
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" /></td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">新建数据库名称（英文）
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">端口
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">新建用户名</td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">新建密码
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">数据库类型
+                </td>
+                <td class="rightmiddleTitle">
+                    <select class="selectStyle">
+                        <option value="1">MySQL</option>
+                        <option value="2">SQL Server</option>
+                        <option value="3">Oracle</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">数据库名称（中文）
+                </td>
+                <td class="rightmiddleTitle">
+                    <input type="text" size="120" maxlength="30" value="" class="inputTextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">数据库简介
+                </td>
+                <td class="rightmiddleTitle">
+                    <textarea cols="50" rows="4" class="richTextStyle"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="subDivStyle">
+        <input id="Button1" type="button" class="save_unPress" />
+        &nbsp;&nbsp;&nbsp;
+            <input id="Button2" type="button" class="return_unPress" onclick="return2last();" />
+    </div>
+</body>
+</html>

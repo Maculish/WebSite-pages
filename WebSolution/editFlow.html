@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+
+        function addNewTr(node) {
+            $("#targetTr").clone(true).appendTo($("#stepTable"));
+            //重置当前序号
+            //var num = $("#targetTr").length - 1;
+            //$($(".tableContentNum")[num]).text(num + 1);
+            //$("#targetSpa").clone(true).appendTo($("#targetTb"));
+        }
+        function deletNewTr(node) {
+            var num = $(".height76").length;
+            if (num <= 1) return;
+            $(node).parent().parent().parent().parent().parent().parent().parent().remove();
+            //$(node).parent().parent().parent().parent().next().remove();
+            //$(node).parent().parent().parent().parent().remove();
+            //重置所有序号
+            //var num = $(".tableContentNum").length - 1
+            //for (var i = 0, length = num + 1; i < length; i++) {
+            //    $($(".tableContentNum")[i]).text(i + 1);
+            //}
+        }
+        function addonMouseDown(node) {
+            $(node).removeClass()
+            $(node).addClass("add_Press");
+        }
+        function addonMouseUp(node) {
+            $(node).removeClass()
+            $(node).addClass("add_unPress");
+        }
+        function delonMouseDown(node) {
+            $(node).removeClass()
+            $(node).addClass("delete_Press");
+        }
+        function delonMouseUp(node) {
+            $(node).removeClass()
+            $(node).addClass("delete_unPress");
+        }
+
+        function validateInput(node) {
+            var targetNode = $(node);
+            if (targetNode.val() == "") {
+                targetNode.css("border-color", "#2273c5");
+                targetNode.parent().find("div").fadeIn(1000);
+                targetNode.parent().find("div").css("height", "22px");
+            } else {
+                targetNode.css("border-color", "#b7b7b7");
+                targetNode.parent().find("div").fadeOut();
+                targetNode.parent().find("div").css("height", "0");
+            }
+        }
+    </script>
+    <style type="text/css">
+        .leftmiddleTitle {
+            color: #000;
+            width: 180px;
+            text-align: left;
+            vertical-align: central;
+            font-weight: bold;
+        }
+
+        .leftTopTitle {
+            color: #000;
+            width: 180px;
+            text-align: left;
+            vertical-align: top;
+            padding-top: 8px;
+            font-weight: bold;
+        }
+
+        .middleTitle {
+            padding-top: 7px;
+            vertical-align: top;
+            color: #000;
+            width: 75px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .leftTextStyle {
+            text-align: left;
+            vertical-align: central;
+        }
+
+        .midlleTextStyle {
+            text-align: left;
+            vertical-align: central;
+            padding-left: 5px;
+        }
+
+        .longtextStyle {
+            width: 450px;
+            height: 28px;
+            text-align: left;
+            padding-left: 5px;
+            padding-bottom: 0px;
+            line-height: 28px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .validateInputStyle {
+            border: thin solid #2273c5;
+        }
+
+        .richTextStyle {
+            width: 455px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .selectService {
+            height: 28px;
+            width: 300px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .selectShortService {
+            height: 28px;
+            width: 130px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .step1Style {
+            height: 28px;
+            line-height: 28px;
+            width: 180px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .step2Style {
+            height: 28px;
+            line-height: 28px;
+            width: 260px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .step3Style {
+            height: 28px;
+            line-height: 28px;
+            width: 88px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop10">
+        <table class="tableBorderStyle" style="width: 800px; margin: auto auto">
+            <tr>
+                <td class="leftmiddleTitle">业务流名称（中文）
+                </td>
+                <td class="leftTextStyle">
+                    <input type="text" name="flow.zhName" size="65" maxlength="30" value="" id="Text1" class="longtextStyle" onblur="validateInput(this)" />
+
+                    <div id="validateDiv" style="padding-left: 30px; color: #2273c5; display: none;">验证提示：XXXXXX不能为空</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">业务流名称（英文）
+                </td>
+                <td class="leftTextStyle">
+                    <input type="text" name="flow.enName" size="65" maxlength="30" value="" id="Text2" class="longtextStyle" />
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td class="leftTopTitle">业务流简介
+                </td>
+                <td class="leftTextStyle">
+                    <textarea name="flow.note" rows="10" id="Textarea1" class="richTextStyle"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">入口服务
+                </td>
+                <td class="leftTextStyle">
+
+                    <select name="flow.serviceId" id="Select0" class="selectService">
+                        <option value="0"
+                            selected="selected"></option>
+                        <option value="1">BizSys1 BizSys1</option>
+                        <option value="2">BizSys2 BizSys2</option>
+                        <option value="3">ChinaSys ChinaSys</option>
+                        <option value="4">FrenchSys FrenchSys</option>
+                        <option value="5">HRMgr HRMgr</option>
+                        <option value="6">HealthWS HealthWS</option>
+                        <option value="7">MobileCodeWS MobileCodeWS</option>
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <select name="flow.methodId" id="Select2" class="selectShortService">
+                                                </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="leftTopTitle">执行流程
+                </td>
+                <td>
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <table id="stepTable" style="width: 460px;" class="tableBorderStyle">
+                                    <tr id="targetTr" class="height76">
+                                        <td>
+                                            <table id="targetTb" class="tableBorderStyle" style="width: 100%; height: 100%">
+                                                <tr>
+                                                    <td rowspan="2" class="middleTitle">执行步骤</td>
+                                                    <td colspan="2" class="leftTextStyle" style="height: 38px">
+                                                        <select name="flow.details[0].modeId" id="Select1_1" class="step1Style">
+                                                            <option value="0" selected="selected"></option>
+                                                            <option value="1">普通模式</option>
+                                                            <option value="2">远程回调模式</option>
+                                                            <option value="3">本地调用模式</option>
+                                                        </select></td>
+                                                    <td>
+                                                        <div style="width: 30px; height: 25px; margin: auto auto">
+                                                            <input id="addBtn" class="add_unPress" onclick="addNewTr(this);" type="button" onmousedown="addonMouseDown(this);" onmouseup="addonMouseUp(this);" />&nbsp;
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="leftTextStyle" style="height: 38px">
+                                                        <select name="flow.details[0].serviceId" id="Select1_2" class="step2Style">
+                                                            <option value="0"
+                                                                selected="selected"></option>
+                                                            <option value="1">BizSys1 BizSys1</option>
+                                                            <option value="2">BizSys2 BizSys2</option>
+                                                            <option value="3">ChinaSys ChinaSys</option>
+                                                            <option value="4">FrenchSys FrenchSys</option>
+                                                            <option value="5">HRMgr HRMgr</option>
+                                                            <option value="6">HealthWS HealthWS</option>
+                                                            <option value="7">MobileCodeWS MobileCodeWS</option>
+                                                        </select></td>
+                                                    <td class="leftTextStyle" style="height: 38px">
+                                                        <select name="flow.details[0].methodId" id="Select1_3" class="step3Style">
+                                                            <option value="0" selected="selected"></option>
+                                                            <option value="1">11</option>
+                                                            <option value="2">222</option>
+                                                        </select></td>
+                                                    <td>
+                                                        <div style="width: 30px; height: 28px; vertical-align: central; margin: auto auto">
+                                                            <input id="delBtn" class="delete_unPress" onclick="deletNewTr(this)" type="button" onmousedown="delonMouseDown(this);" onmouseup="delonMouseUp(this);" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="marginTop10" style="padding-bottom: 20px">
+        <table class="tableBorderStyle" style="margin: auto auto; width: 160px;">
+            <tr>
+                <td style="width: 155px; text-align: center">
+                    <input type="button" class="save_unPress" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" class="return_unPress" onclick="return2last()" />
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

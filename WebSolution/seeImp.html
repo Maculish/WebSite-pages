@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <style type="text/css"></style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop30">
+        <table style="width: 400px; margin: auto auto">
+            <tr>
+                <td class="searchHeadLeft30" style="width: 120px;">规则名称</td>
+                <td colspan="2">
+                    <input type="text" maxlength="8" value="" class="input180" style="height: 25px" /></td>
+                <td rowspan="4" style="width: 60px;">
+                    <div style="width: 100%; margin: auto auto">
+                        <input id="Button1" class="search_unPress" type="button" style="margin-left: 20px" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="searchHeadLeft30" style="width: 120px">导出源数据</td>
+                <td>
+                    <select name="D1" class="input180">
+                        <option value="0"></option>
+                        <option value="1">集成XXXXXXXX</option>
+                        <option value="2">集成XXXXXXXX</option>
+                        <option value="3">集成XXXXXXXX</option>
+                        <option value="4">集成XXXXXXXX</option>
+                    </select></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="searchHeadLeft30" style="width: 120px">导出目标库</td>
+                <td colspan="2">
+                    <select name="flow.port.flowId" id="seeFlow_flow_port_flowId" class="input180">
+                        <option value="0"></option>
+                        <option value="1">未启动</option>
+                        <option value="2">等待执行</option>
+                        <option value="3">执行中</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td class="searchHeadLeft30" style="width: 120px">状态</td>
+                <td colspan="2">
+                    <select name="flow.port.flowId0" id="seeFlow_flow_port_flowId0" class="input180">
+                        <option value="0"></option>
+                        <option value="1">未启动</option>
+                        <option value="2">等待执行</option>
+                        <option value="3">执行中</option>
+                    </select></td>
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop30">
+        <table border="0" style="width: 100%; table-layout: fixed" class="tableBorderStyle">
+            <tr>
+                <td class="tableContentEndsHead" width="5%">编号
+                </td>
+                <td class="tableContentHead">导出规则名称
+                </td>
+                <td class="tableContentHead" style="width: 5%"></td>
+                <td class="tableContentHead" style="width: 20%">导出源数据库
+                </td>
+                <td class="tableContentHead" style="width: 20%">导入源数据库
+                </td>
+                <td class="tableContentHead" style="width: 9%">状态
+                </td>
+                <td class="tableContentEndsHead" style="width: 10%">操作
+                </td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">1
+                </td>
+                <td class="roleQuli">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                </td>
+                <td class="rectangletd" style="width: 5%">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">XXXXXXXXXXXXXXXX
+                </td>
+                <td class="tableContent">XXXXXXXX<br>
+                    XXXXXXXX<br>
+                    XXXXXXXX<br>
+                    XXXXXXXX<br>
+                </td>
+                <td class="tableContent">未启动
+                </td>
+                <td class="tableContentEdit">
+                    <div style="width: 60px; margin: auto auto">
+                        <div style="width: 30px; float: left">
+                            <input id="Button2" type="button" value="" class="enable_unPress" onmousedown="enableonMouseDown(this)" onmouseup="enableonMouseUp(this)" />
+                            <div class="iconLable">启动</div>
+                        </div>
+                         <div style="width: 30px; float: left">
+                            <input id="Button5" type="button" value="" class="start_unPress" onmousedown="startonMouseDown(this)" onmouseup="startonMouseUp(this)" />
+                            <div class="iconLable">执行</div>
+                        </div>
+                        <div style="width: 30px; float: left">
+                            <input id="Button3" type="button" value="" class="edite_unPress" onmousedown="editonMouseDown(this)" onmouseup="editonMouseUp(this)" />
+                            <div class="iconLable">编辑</div>
+                        </div>
+                        <div style="width: 30px; float: left">
+                            <input id="Button4" type="button" value="" class="delete_unPress" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" />
+                            <div class="iconLable">删除</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left" name="D1">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

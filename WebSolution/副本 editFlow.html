@@ -1,0 +1,633 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var selectArray = $("#stepTable select");
+            for (var i = 0, length = selectArray.length; i < length; i++) {
+                selectArray[i].onchange = function () {
+                    var selectId = this.id;
+                    var arr = selectId.split("_");
+                    var numArr = arr[0].split("Select");
+                    var num = numArr[1];
+                    var sel1 = arr[0] + "_1";
+                    var sel2 = arr[0] + "_2";
+                    var sel3 = arr[0] + "_3";
+                    var eleSel1 = $("#" + sel1).find("option:selected").text();
+                    var eleSel2 = $("#" + sel2).find("option:selected").text();
+                    var eleSel3 = $("#" + sel3).find("option:selected").text();
+                    if (eleSel1 == "" || eleSel1 == undefined) {
+                    } else if (eleSel2 == "" || eleSel2 == undefined) {
+                    } else if (eleSel3 == "" || eleSel3 == undefined) {
+                    } else {
+                        var divNumId = "Div" + num;
+                        var divLineId = "Div" + num + "Line";
+                        var imgCss = "num" + num + "_light";
+                        var lineCss = "line_light";
+                        $("#" + divNumId)[0].className = imgCss;
+                        if (num != 10)
+                            $("#" + divLineId)[0].className = lineCss;
+                    }
+                }
+            }
+        });
+
+    </script>
+    <style type="text/css">
+        .leftmiddleTitle {
+            color: #000;
+            width: 180px;
+            text-align: left;
+            vertical-align: central;
+            font-weight: bold;
+        }
+
+        .leftTopTitle {
+            color: #000;
+            width: 180px;
+            text-align: left;
+            vertical-align: top;
+            padding-top: 8px;
+            font-weight: bold;
+        }
+
+        .middleTitle {
+            padding-top: 7px;
+            vertical-align: top;
+            color: #000;
+            width: 75px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .leftTextStyle {
+            text-align: left;
+            vertical-align: central;
+        }
+
+        .midlleTextStyle {
+            text-align: left;
+            vertical-align: central;
+            padding-left: 5px;
+        }
+
+        .longtextStyle {
+            width: 450px;
+            height: 28px;
+            text-align: left;
+            padding-left: 5px;
+            padding-bottom:0px;
+            line-height:28px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+            font-family:'Microsoft YaHei';
+        }
+
+        .richTextStyle {
+            width: 455px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .selectService {
+            height: 28px;
+            width: 300px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .selectShortService {
+            height: 28px;
+            width: 130px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .step1Style {
+            height: 28px;
+            width: 180px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .step2Style {
+            height: 28px;
+            width: 262px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .step3Style {
+            height: 28px;
+            width: 88px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop10">
+        <table class="tableBorderStyle" style="width: 800px; margin: auto auto">
+            <tr>
+                <td class="leftmiddleTitle">业务流名称（中文）
+                </td>
+                <td class="leftTextStyle">
+                    <input type="text" name="flow.zhName" size="65" maxlength="30" value="" id="Text1" class="longtextStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">业务流名称（英文）
+                </td>
+                <td class="leftTextStyle">
+                    <input type="text" name="flow.enName" size="65" maxlength="30" value="" id="Text2" class="longtextStyle" />
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td class="leftTopTitle">业务流简介
+                </td>
+                <td class="leftTextStyle">
+                    <textarea name="flow.note" rows="10" id="Textarea1" class="richTextStyle"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftmiddleTitle">入口服务
+                </td>
+                <td class="leftTextStyle">
+
+                    <select name="flow.serviceId" id="Select0" class="selectService">
+                        <option value="0"
+                            selected="selected"></option>
+                        <option value="1">BizSys1 BizSys1</option>
+                        <option value="2">BizSys2 BizSys2</option>
+                        <option value="3">ChinaSys ChinaSys</option>
+                        <option value="4">FrenchSys FrenchSys</option>
+                        <option value="5">HRMgr HRMgr</option>
+                        <option value="6">HealthWS HealthWS</option>
+                        <option value="7">MobileCodeWS MobileCodeWS</option>
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <select name="flow.methodId" id="Select2" class="selectShortService">
+                                                </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="leftTopTitle">执行流程
+                </td>
+                <td>
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <table id="stepTable" style="width: 460px;" class="tableBorderStyle">
+
+                                    <tr>
+                                        <td class="middleTitle" rowspan="2">执行步骤</td>
+                                        <td id="keyTD" style="width: 22px; height: 838px" rowspan="20">
+                                            <div style="width: 22px; height: 838px; margin-top: 0px">
+                                                <div id="Div1" style="margin-top: 7px;" class="num1_dark"></div>
+                                                <div id="Div1Line" class="line_dark"></div>
+                                                <div id="Div2" class="num2_dark"></div>
+                                                <div id="Div2Line" class="line_dark"></div>
+                                                <div id="Div3" class="num3_dark"></div>
+                                                <div id="Div3Line" class="line_dark"></div>
+                                                <div id="Div4" class="num4_dark"></div>
+                                                <div id="Div4Line" class="line_dark"></div>
+                                                <div id="Div5" class="num5_dark"></div>
+                                                <div id="Div5Line" class="line_dark"></div>
+                                                <div id="Div6" class="num6_dark"></div>
+                                                <div id="Div6Line" class="line_dark"></div>
+                                                <div id="Div7" class="num7_dark"></div>
+                                                <div id="Div7Line" class="line_dark"></div>
+                                                <div id="Div8" class="num8_dark"></div>
+                                                <div id="Div8Line" class="line_dark"></div>
+                                                <div id="Div9" class="num9_dark"></div>
+                                                <div id="Div9Line" class="line_dark" style="height: 61px;"></div>
+                                                <div id="Div10" class="num10_dark"></div>
+                                            </div>
+                                        </td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[0].modeId" id="Select1_1" class="step1Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[0].serviceId" id="Select1_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+                                            </select>
+                                            <select name="flow.details[0].methodId" id="Select1_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">11</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width: 15%" class="middleTitle" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[1].modeId" id="Select2_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[1].serviceId" id="Select2_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[1].methodId" id="Select2_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="15%" class="middleTitle" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[2].modeId" id="Select3_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[2].serviceId" id="Select3_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[2].methodId" id="Select3_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="middleTitle" width="15%" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[3].modeId" id="Select4_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[3].serviceId" id="Select4_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[3].methodId" id="Select4_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="middleTitle" width="15%" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[4].modeId" id="Select5_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[4].serviceId" id="Select5_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[4].methodId" id="Select5_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="middleTitle" width="15%" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[5].modeId" id="Select6_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[5].serviceId" id="Select6_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[5].methodId" id="Select6_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="middleTitle" width="15%" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[6].modeId" id="Select7_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[6].serviceId" id="Select7_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[6].methodId" id="Select7_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="15%" class="middleTitle" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[7].modeId" id="Select8_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[7].serviceId" id="Select8_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[7].methodId" id="Select8_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="15%" class="middleTitle" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[8].modeId" id="Select9_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[8].serviceId" id="Select9_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[8].methodId" id="Select9_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="15%" class="middleTitle" rowspan="2">执行步骤</td>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[9].modeId" id="Select10_1" class="step1Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">普通模式</option>
+                                                <option value="2">远程回调模式</option>
+                                                <option value="3">本地调用模式</option>
+
+
+                                            </select>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="leftTextStyle" style="height: 38px">
+                                            <select name="flow.details[9].serviceId" id="Select10_2" class="step2Style">
+                                                <option value="0"
+                                                    selected="selected"></option>
+                                                <option value="1">BizSys1 BizSys1</option>
+                                                <option value="2">BizSys2 BizSys2</option>
+                                                <option value="3">ChinaSys ChinaSys</option>
+                                                <option value="4">FrenchSys FrenchSys</option>
+                                                <option value="5">HRMgr HRMgr</option>
+                                                <option value="6">HealthWS HealthWS</option>
+                                                <option value="7">MobileCodeWS MobileCodeWS</option>
+
+
+                                            </select><select name="flow.details[9].methodId" id="Select10_3" class="step3Style">
+                                                <option value="0" selected="selected"></option>
+                                                <option value="1">111</option>
+                                                <option value="2">222</option>
+                                            </select>
+
+
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="marginTop10" style="padding-bottom: 20px">
+        <table class="tableBorderStyle" style="margin: auto auto; width: 160px;">
+            <tr>
+                <td style="width: 155px; text-align: center">
+                    <input type="button" class="save_unPress" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" class="return_unPress" onclick="return2last()" />
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

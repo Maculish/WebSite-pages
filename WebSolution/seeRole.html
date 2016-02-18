@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/num.css" rel="stylesheet" type="text/css" />
+    <style type="text/css"></style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop10">
+        <table style="width: 480px; margin: auto auto">
+            <tr>
+                <td class="label1">
+                    <table style="width: 100%">
+
+                        <tr>
+                            <td class="head">&nbsp;角色名称
+                            </td>
+                            <td class="cent">
+                                <input type="text" size="16" maxlength="8" value="" id="seeRole_role_name" class="textBoxStyle" /></td>
+                            <td class="head">&nbsp;权限
+                            </td>
+                            <td class="cent">
+                                <input type="text" size="16" maxlength="8" value="" id="seeRole_role_authorityKey" class="textBoxStyle" /></td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="vertical-align: central;">
+                    <input id="Button1" type="button" class="search_unPress" value="" />
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <!-- 检索结果 -->
+    <div class="marginTop30">
+        <div style="width: 100%; background: #fff">
+            <table class="tableBorderStyle" style="width: 100%">
+                <tr>
+                    <td class="tableContentEndsHead" style="width: 5%">编号</td>
+                    <td style="width: 13%" class="tableContentHead">角色名称</td>
+                    <td style="width: auto" class="tableContentHead">权限</td>
+                    <td class="tableContentEndsHead" style="width: 16%">编辑</td>
+                </tr>
+            </table>
+        </div>
+        <table class="tableBorderStyle" style="width: 100%; margin: auto auto;">
+            <tr style="height: 20px;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="width: 5%" class="roleNum">001</td>
+                <td style="width: 13%;" class="roleQuli">系统管理员
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td style="width: auto;" class="roleAuth">系统管理:系统配置<br />
+                    用户管理:增加角色,查看角色,增加用户,编辑用户,修改密码<br />
+                    集成系统管理:增加集成系统,查看集成系统<br />
+                    服务管理:增加服务,查看服务<br />
+                    业务管理:查看应用模式,增加业务流,查看业务流<br />
+                    数据源管理:新增数据源
+                </td>
+                <td style="width: 16%" class="tableContentEdit">
+                    <div style="width: 100px; margin: auto auto">
+                        <div style="width: 50px; float: left">
+                            <input id="Button13" type="button" class="edite_unPress" onclick="link2Next('editRole.html')"  onmousedown="editonMouseDown(this)" onmouseup="editonMouseUp(this)" />
+                            <div style="width: 50px; margin: auto auto" class="iconLable">编辑</div>
+                        </div>
+                        <div style="width: 50px; float: left">
+                            <input id="Button2" type="button" class="delete_unPress" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" />
+                            <div style="width: 50px; margin: auto auto" class="iconLable">删除</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="height: 20px;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="contentTr">
+                <td class="roleNum">002</td>
+                <td class="roleQuli">审计人员
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="roleAuth">用户管理:编辑用户<br />
+                    数据源管理:查看数据源
+                </td>
+                <td class="tableContentEdit">
+                    <div style="width: 100px; margin: auto auto">
+                        <div style="width: 50px; float: left">
+                            <input id="Button3" type="button" class="edite_unPress" onclick="link2Next('editRole.html')" />
+                            <div style="width: 50px; margin: auto auto" class="iconLable">编辑</div>
+                        </div>
+                        <div style="width: 50px; float: left">
+                            <input id="Button4" type="button" class="delete_unPress" />
+                            <div style="width: 50px; margin: auto auto" class="iconLable">删除</div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- 分页情报 -->
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left" name="D1">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

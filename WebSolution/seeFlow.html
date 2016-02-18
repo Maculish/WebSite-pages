@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/num.css" rel="stylesheet" type="text/css" />
+    <style type="text/css"></style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop30" style="margin-top: 30px">
+        <table style="margin: auto auto; width: 550px">
+            <tr>
+                <td class="head" style="vertical-align: middle; text-align: right">业务流名称</td>
+                <td>
+                    <input type="text" name="flow.zhName" size="16" maxlength="8" value="" id="seeFlow_flow_zhName" class="input130" /></td>
+                <td class="head" style="vertical-align: middle; text-align: right">业务发布端口</td>
+                <td>
+                    <select name="flow.status0" id="seeFlow_flow_status0" style="width: 130px" class="input130">
+                        <option value="0"></option>
+                        <option value="46">50000</option>
+                    </select></td>
+                <td rowspan="2" style="text-align: right; vertical-align: central; width: 60px">
+                    <input id="Button1" class="search_unPress" type="button" /></td>
+            </tr>
+            <tr>
+                <td class="head" style="vertical-align: middle; text-align: right">业务流简介</td>
+                <td>
+                    <input type="text" name="flow.zhName0" size="16" maxlength="8" value="" id="seeFlow_flow_zhName0" class="input130" /></td>
+                <td class="head" style="vertical-align: middle; text-align: right">状态</td>
+                <td>
+                    <select name="flow.status" id="seeFlow_flow_status" style="width: 130px" class="input130">
+                        <option value="-1"></option>
+                        <option value="0">已启动</option>
+                        <option value="1">未启动</option>
+                        <option value="2">可用</option>
+                        <option value="3">禁用</option>
+
+
+                    </select></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="marginTop30">
+        <div style="width: 100%; background-color: #fff">
+            <table class="tableBorderStyle" style="width: 800px; margin: auto auto">
+                <tr>
+                    <td class="tableContentEndsHead" style="width: 40px">编号
+                    </td>
+                    <td class="tableContentHead" style="width: 120px">业务流名称
+                    </td>
+                    <td class="tableContentHead" style="width: 40px"></td>
+                    <td class="tableContentHead" style="width: 160px">业务流简介
+                    </td>
+                    <td class="tableContentHead" style="width: 160px">业务发布地址
+                    </td>
+                    <td class="tableContentHead" style="width: 160px">执行流程
+                    </td>
+                    <td class="tableContentHead" style="width: 72px">状态
+                    </td>
+                    <td class="tableContentEndsHead" style="width: 48px">操作
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table class="tableBorderStyle" style="width: 800px; margin: auto auto; table-layout: fixed">
+            <tr class="height20">
+                <td style="width: 40px"></td>
+                <td style="width: 120px">&nbsp;</td>
+                <td style="width: 40px">&nbsp;</td>
+                <td style="width: 120px">&nbsp;</td>
+                <td style="width: 160px">&nbsp;</td>
+                <td style="width: 160px">&nbsp;</td>
+                <td style="width: 72px">&nbsp;</td>
+                <td style="width: 48px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="tableContentNum" style="width: 40px">1
+                </td>
+                <td class="roleQuli" style="width: 120px">
+                    <div class="redLable" onclick="link2href('seeFlowNameDetail.html')">aaa</div>
+                    aaa
+                </td>
+                <td class="rectangletd" style="width: 40px">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent" style="width: 120px">aaa
+                </td>
+                <td class="tableContent" style="width: 160px">http://192.168.70.187:50000/services/BizSys1?wsdl
+                </td>
+                <td class="tableContent" style="width: 160px">
+                    <span class="label-error">执行步骤1[普通模式]
+                    </span>
+                    <br />
+                    <a href="" target="contentFrame">BizSys1
+														(BizSys1)</a>
+                    <br />
+                    int notify(int[] personIds)
+													<br />
+
+                    <span class="label-error">执行步骤2[普通模式]
+                    </span>
+                    <br />
+                    <a href="" target="contentFrame">BizSys2
+														(BizSys2)</a>
+                    <br />
+                    int notify(int[] personIds)
+													<br />
+                </td>
+                <td class="tableContent" style="width: 72px">未启动							
+                </td>
+                <td class="tableContentEdit" style="width: 48px">
+                    <div style="width: 30px; margin-bottom:5px;margin-left:auto;margin-right:auto">
+                        <input id="Button2" type="button" value="" class="enable_unPress" onmousedown="enableonMouseDown(this);" onmouseup="enableonMouseUp(this);" />
+                        <div class="iconLable">启用</div>
+                    </div>
+                    <div style="width: 30px; margin-bottom:5px;margin-left:auto;margin-right:auto">
+                        <input id="Button3" type="button" value="" class="disenable_unPress" onmousedown="disenableonMouseDown(this);" onmouseup="disenableonMouseUp(this);" />
+                        <div class="iconLable">禁用</div>
+                    </div>
+                    <div style="width: 30px; margin-bottom:5px;margin-left:auto;margin-right:auto">
+                        <input id="Button5" type="button" value="" class="edite_unPress" onclick="link2Next('editFlow.html')" onmousedown="editonMouseDown(this);" onmouseup="editonMouseUp(this);" />
+                        <div class="iconLable">编辑</div>
+                    </div>
+                    <div style="width: 30px; margin-bottom:5px;margin-left:auto;margin-right:auto">
+                        <input id="Button4" type="button" value="" class="delete_unPress" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" />
+                        <div class="iconLable">删除</div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="height20">
+                <td style="width: 40px"></td>
+                <td style="width: 120px">&nbsp;</td>
+                <td style="width: 40px">&nbsp;</td>
+                <td style="width: 120px">&nbsp;</td>
+                <td style="width: 160px">&nbsp;</td>
+                <td style="width: 160px">&nbsp;</td>
+                <td style="width: 72px">&nbsp;</td>
+                <td style="width: 48px">&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left" name="D1">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <style type="text/css">
+        /*为兼容IE8，误删此行*/
+    </style>
+    <script type="text/javascript">
+         /*
+         * 实现两点间画箭头的功能
+         * @author mapleque@163.com    
+         * @version 1.0
+         * @date 2013.05.23
+         */
+         /*
+         * 实现折线连接的功能
+         * Modify by Maculish 
+         * @version 1.1
+         * @date 2014.12.16
+         */
+        ; (function (window, document) {
+            if (window.mapleque == undefined)
+                window.mapleque = {};
+            if (window.mapleque.arrow != undefined)
+                return;
+
+            /**
+            * 组件对外接口
+            */
+            var proc = {
+                /**
+                * 接收canvas对象，并在此上画箭头（箭头起止点已经设置）
+                * @param context
+                */
+                paint: function (context) { paint(this, context); },
+                /**
+                * 设置箭头起止点
+                * @param sp起点
+                * @param ep终点
+                * @param st强度
+                */
+                set: function (sp, ep, st) { init(this, sp, ep, st); },
+                /**
+                * 设置箭头外观
+                * @param args
+                */
+                setPara: function (args) {
+                    this.size = args.arrow_size;//箭头大小
+                    this.sharp = args.arrow_sharp;//箭头锐钝
+                }
+            };
+
+            var init = function (a, sp, ep, st) {
+                a.sp = sp;//起点
+                a.ep = ep;//终点
+                a.st = st;//强度
+            };
+            var paint = function (a, context) {
+                var sp = a.sp;
+                var ep = a.ep;
+                if (context == undefined)
+                    return;
+                //画箭头主线
+                context.beginPath();
+                context.moveTo(sp.x, sp.y);
+                context.lineTo(ep.x, ep.y);
+                //画箭头头部
+                //var h = _calcH(a, sp, ep, context);
+                //context.moveTo(ep.x, ep.y);
+                //context.lineTo(h.h1.x, h.h1.y);
+                //context.moveTo(ep.x, ep.y);
+                //context.lineTo(h.h2.x, h.h2.y);
+                context.stroke();
+            };
+            //计算头部坐标
+            var _calcH = function (a, sp, ep, context) {
+                var theta = Math.atan((ep.x - sp.x) / (ep.y - sp.y));
+                var cep = _scrollXOY(ep, -theta);
+                var csp = _scrollXOY(sp, -theta);
+                var ch1 = { x: 0, y: 0 };
+                var ch2 = { x: 0, y: 0 };
+                var l = cep.y - csp.y;
+                ch1.x = cep.x + l * (a.sharp || 0.025);
+                ch1.y = cep.y - l * (a.size || 0.05);
+                ch2.x = cep.x - l * (a.sharp || 0.025);
+                ch2.y = cep.y - l * (a.size || 0.05);
+                var h1 = _scrollXOY(ch1, theta);
+                var h2 = _scrollXOY(ch2, theta);
+                return {
+                    h1: h1,
+                    h2: h2
+                };
+            };
+            //旋转坐标
+            var _scrollXOY = function (p, theta) {
+                return {
+                    x: p.x * Math.cos(theta) + p.y * Math.sin(theta),
+                    y: p.y * Math.cos(theta) - p.x * Math.sin(theta)
+                };
+            };
+
+            var arrow = new Function();
+            arrow.prototype = proc;
+            window.mapleque.arrow = arrow;
+        })(window, document);
+
+    </script>
+</head>
+<body class="bodyStyle">
+
+    <div class="marginTop30">
+        <div style="width: 100%; margin: auto auto; background-color: #fff">
+            <table class="tableBorderStyle" style="width: 840px; margin: auto auto;">
+                <tr>
+                    <td class="tableContentEndsHead" style="width: 210px">源库
+                    </td>
+                    <td class="tableContentEndsHead" style="width: 420px">集成库
+                    </td>
+                    <td class="tableContentEndsHead" style="width: 210px">目标库
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table class="tableBorderStyle" style="width: 800px; margin: auto auto">
+            <tr>
+                <td>
+                    <table id="table" class="tableBorderStyle">
+                        <tr>
+                            <td id="sourceDbTd" style="width: 200px; text-align: left">
+                                <fieldset class="groupbox" style="text-align: left" id="local1">
+                                    <legend class="cent2">XXXX源库</legend>
+                                    OA系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br>
+                                <br>
+                                <fieldset class="groupbox" style="text-align: left" id="local2">
+                                    <legend class="cent2">XXXX源库</legend>
+                                    人力资源系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br>
+                                <br>
+                                <fieldset class="groupbox" style="text-align: left" id="local3">
+                                    <legend class="cent2">XXXX源库</legend>
+                                    健康系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                            </td>
+                            <td style="vertical-align: top">
+                                <canvas id="myCanvas"></canvas>
+                            </td>
+                            <td id="rsDbTd" style="text-align: left; width: 200px">
+                                <fieldset class="groupbox" style="text-align: left" id="rsDb">
+                                    <legend class="cent2">XXX集成库</legend>
+                                    TABLE XXX<br>
+                                    TABLE XXX<br>
+                                    TABLE XXX<br>
+                                    TABLE XXX<br>
+                                    TABLE XXX<br>
+                                    TABLE XXX
+                                </fieldset>
+                            </td>
+                            <td style="vertical-align: top">
+                                <canvas id="myCanvas1"></canvas>
+                            </td>
+                            <td id="targetDbTd" style="text-align: left; width: 200px">
+                                <fieldset class="groupbox" style="text-align: left" id="local5">
+                                    <legend class="cent2">XXXX源库</legend>
+                                    健康系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br>
+                                <br>
+                                <fieldset class="groupbox" style="text-align: left" id="local6">
+                                    <legend class="cent2">XXXX源库</legend>
+                                    OA系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <script type="text/javascript">
+
+        //设定画布的宽高
+        var canvasLeft = document.getElementById("myCanvas");
+        var canvasRight = document.getElementById("myCanvas1");
+        canvasLeft.width = 100;
+        if (canvasLeft.height < window.innerHeight) {
+            canvasLeft.height = window.innerHeight;
+        }
+        canvasRight.width = 100;
+        if (canvasRight.height < window.innerHeight) {
+            canvasRight.height = window.innerHeight;
+        }
+        //获取左侧源库，矢量起始对象
+        var leftArr = [];
+        var leftPNodes = document.getElementById("sourceDbTd");
+        for (var i = 0, length = leftPNodes.childNodes.length; i < length; i++) {
+            var node = leftPNodes.childNodes[i];
+            if (node.tagName == "FIELDSET") {
+                //记录内容元素
+                leftArr.push(node);
+            }
+        }
+        //获取右侧目标库，矢量起始对象
+        var rightArr = [];
+        var rightPNodes = document.getElementById("targetDbTd");
+        for (var i = 0, length = rightPNodes.childNodes.length; i < length; i++) {
+            var node = rightPNodes.childNodes[i];
+            if (node.tagName == "FIELDSET") {
+                //记录内容元素
+                rightArr.push(node);
+            }
+        }
+        //获取集成库对象rsDb,rsDb为唯一对象，直接获取 矢量结束对象
+        var rsDb = document.getElementById("rsDb");
+
+
+        //矢量起始对象
+        //var local1 = document.getElementById("local1");
+        //var local2 = document.getElementById("local2");
+        //var local3 = document.getElementById("local3");
+        //var local5 = document.getElementById("local5");
+        //var local6 = document.getElementById("local6");
+        //矢量结束对象
+        //var local4 = document.getElementById("local4");
+
+        //取得2D画布
+        var foldLineLeft = canvasLeft.getContext('2d');
+        var foldLineRight = canvasRight.getContext('2d');
+        //初始化2D画布规则
+        var a1 = new window.mapleque.arrow();
+
+        //集成库的fieldset的对象
+        //循环对fieldset设置左侧起点坐标
+        //获取源库的所有fieldset的对象
+        //设定左侧终结点坐标和右侧终结点坐标
+        //获取目标库的所有fieldset的对象
+        //循环对fieldset设置起点右侧坐标
+        //起始坐标，结束坐标
+        var xFrom, yFrom, xFrom1, yFrom1, xTo, yTo, xTo1, yTo1;
+
+        //导入集成库绘图坐标(左)
+        xFrom = 0;
+        xTo = 100;
+        yTo = rsDb.offsetTop + rsDb.offsetHeight / 2;
+        //导入集成库绘图坐标(右)
+        xFrom1 = 100;
+        xTo1 = 0;
+        //yTo1 = local4.offsetTop + local4.offsetHeight / 2;
+        yTo1 = rsDb.offsetTop + rsDb.offsetHeight / 2;
+
+        var destination = { x: xTo, y: yTo };
+        var from = { x: xTo1, y: yTo1 };
+
+        for (var li = 0, length = leftArr.length; li < length; li++) {
+            var node = leftArr[li];
+            //绘图
+            a1.set({ x: xFrom, y: node.offsetTop + node.offsetHeight / 2 }, destination);
+            a1.setPara({ arrow_size: 0.05, arrow_sharp: 0.008 });
+            //在左侧画布上绘图
+            a1.paint(foldLineLeft);
+        }
+
+        for (var ri = 0, length = rightArr.length; ri < length; ri++) {
+            var node = rightArr[ri];
+            a1.set(from, { x: xFrom1, y: node.offsetTop + node.offsetHeight / 2 });
+            a1.setPara({ arrow_size: 0.05, arrow_sharp: 0.008 });
+            //在右侧画布上绘图
+            a1.paint(foldLineRight);
+        }
+
+        /*
+        //绘图（1）
+        a1.set({ x: xFrom, y: local1.offsetTop + local1.offsetHeight / 2 }, destination);
+        a1.setPara({ arrow_size: 0.05, arrow_sharp: 0.008 });
+        //在左侧画布上绘图
+        a1.paint(foldLineLeft);
+
+        //绘图（2）
+        a1.set({ x: xFrom, y: local2.offsetTop + local2.offsetHeight / 2 }, destination);
+        a1.setPara({ arrow_size: 0.05, arrow_sharp: 0.008 });
+        a1.paint(foldLineLeft);
+        //绘图（3）
+        a1.set({ x: xFrom, y: local3.offsetTop + local3.offsetHeight / 2 }, destination);
+        a1.setPara({ arrow_size: 0.05, arrow_sharp: 0.008 });
+        a1.paint(foldLineLeft);
+        //绘图（5）
+        a1.set(from, { x: xFrom1, y: local5.offsetTop + local5.offsetHeight / 2 });
+        a1.setPara({ arrow_size: 0.05, arrow_sharp: 0.008 });
+        a1.paint(foldLineRight);
+        //绘图（6）
+        a1.set(from, { x: xFrom1, y: local6.offsetTop + local6.offsetHeight / 2 });
+        a1.setPara({ arrow_size: 0.05, arrow_sharp: 0.008 });
+        a1.paint(foldLineRight);
+        */
+
+    </script>
+    <div class="marginTop10">
+        <div style="width: 30px; margin: auto auto 20px auto">
+            <input type="button" value='' class="return_unPress" onclick="location.href = 'seeDbStates.html'" />
+        </div>
+    </div>
+
+</body>
+</html>

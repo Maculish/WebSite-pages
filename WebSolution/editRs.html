@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/num.css" type="text/css" rel="stylesheet" />
+    <title></title>
+    <style type="text/css">
+        .searchTitleStyle {
+            vertical-align: central;
+            width: 120px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body class="bodyStyle" style="font-family: 'Microsoft YaHei'">
+    <div style="margin: 30px auto auto auto">
+        <table style="width: 500px; margin: auto auto">
+            <tr>
+                <td class="label1">
+                    <table style="width: 100%">
+                        <tr>
+                            <td class="head" style="width: 100%">系统名称
+                            </td>
+                            <td class="cent2">
+                                <input type="text" name="remoteSys.name" size="65" maxlength="30" value="" id="saveRs_remoteSys_name" class="input400" style="height: 28px; line-height: 28px" />
+
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="head">系统简介
+                            </td>
+                            <td class="cent2">
+                                <textarea name="remoteSys.note" cols="50" rows="10" id="saveRs_remoteSys_note" class="input400"></textarea>
+
+
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="tableBorderStyle" style="width: 200px; margin: 10px auto auto auto">
+                        <tr>
+                            <td style="text-align: center">
+                                <input type="button" id="saveRs_0" class="save_unPress" onclick="onSave();" />
+                            </td>
+                            <td style="text-align: center">
+                                <input type="button" id="Button3" class="saveWs_unPress" />
+                                <div class="iconLable">增加服务</div>
+                            </td>
+                            <td style="text-align: center">
+                                <input type="button" id="Button7" class="saveDs_unPress" />
+                                <div class="iconLable">增加数据源</div>
+                            </td>
+                            <td style="text-align: center">
+                                <input type="button" value='' class="return_unPress" onclick="return2last();" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

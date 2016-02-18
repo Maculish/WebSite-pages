@@ -1,0 +1,499 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <style type="text/css">
+        /*为兼容IE8，误删此行*/
+    </style>
+    <!--[if IE 8]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
+    <script type="text/javascript">
+        function setLeftLine(ctx, startNode, endNode) {
+            ctx.beginPath(); // 开始路径绘制
+            ctx.moveTo(startNode.x, startNode.y); // 设置路径起点
+            ctx.lineTo(endNode.x, endNode.y); // 绘制一条直线
+            ctx.lineWidth = 1.0; // 设置线宽
+            ctx.strokeStyle = "#2472c7"; // 设置线的颜色
+            ctx.stroke(); // 进行线的着色，这时整条线才变得可见
+        }
+        function setRightLine(ctx, startNode, endNode) {
+            ctx.beginPath(); // 开始路径绘制
+            ctx.moveTo(startNode.x, startNode.y); // 设置路径起点，坐标为(20,20)
+            ctx.lineTo(endNode.x, endNode.y); // 绘制一条到(200,20)的直线
+            ctx.lineWidth = 1.0; // 设置线宽
+            ctx.strokeStyle = "#d52662"; // 设置线的颜色
+            ctx.stroke(); // 进行线的着色，这时整条线才变得可见
+        }
+
+        function setLeftArrow(point) {
+            var left = document.getElementById("leftCanvasTD");
+            var mydiv = document.createElement("div");
+            mydiv.style.width = "25px";
+            mydiv.style.height = "25px";
+            mydiv.style.backgroundRepeat = "no-repeat";
+            mydiv.style.backgroundImage = "url('img/leftArrow.png')"
+            mydiv.style.overflow = "hidden";
+            mydiv.style.marginLeft = point.x.toString() + "px";
+            //需要加上canvas的offsetTop
+            var targetDs = document.getElementById("rsDb");
+            var canvas = document.getElementById("leftCanvas");
+            mydiv.style.marginTop = "-" + (point.y - targetDs.offsetHeight / 2 - 12).toString() + "px";
+            //mydiv.style.marginTop = "-" + (point.y + 12.5).toString() + "px";
+            mydiv.style.zIndex = "1000";
+            mydiv.style.position = "absolute";
+            left.appendChild(mydiv);
+        }
+
+        function setRightArrow(point) {
+            var right = document.getElementById("rightCanvasTD");
+            var mydiv = document.createElement("div");
+            mydiv.style.width = "25px";
+            mydiv.style.height = "25px";
+            mydiv.style.backgroundRepeat = "no-repeat";
+            mydiv.style.backgroundImage = "url('img/rightArrow.png')"
+            mydiv.style.overflow = "hidden";
+            mydiv.style.marginLeft = (point.x).toString() + "px";
+            mydiv.style.marginTop = "-" + (point.y + 12.5).toString() + "px";
+            mydiv.style.zIndex = "1000";
+            mydiv.style.position = "absolute";
+            right.appendChild(mydiv);
+        }
+
+        function prepLoad() {
+
+            //设定画布的宽高
+            var canvasLeft = document.getElementById("leftCanvas");
+            var canvasRight = document.getElementById("rightCanvas");
+            canvasLeft.width = 100;
+            var canvasTd = document.getElementById("leftCanvas");
+
+            //canvasRight.height = canvasTd.offsetHeight;
+            //if (canvasLeft.height < document.body.scrollHeight) {
+            //    canvasLeft.height = document.body.scrollHeight;
+            //}
+            //if (canvasLeft.height < window.innerHeight) {
+            //    canvasLeft.height = window.innerHeight;
+            //}
+            canvasRight.width = 100;
+            //if (canvasRight.height < document.body.scrollHeight) {
+            //    canvasRight.height = document.body.scrollHeight;
+            //}
+            //if (canvasRight.height < window.innerHeight) {
+            //    canvasRight.height = window.innerHeight;
+            //}
+            //获取左侧源库，矢量起始对象
+            var leftArr = [];
+            var leftPNodes = document.getElementById("sourceDbTd");
+            for (var i = 0, length = leftPNodes.childNodes.length; i < length; i++) {
+                var node = leftPNodes.childNodes[i];
+                if (node.tagName == "FIELDSET") {
+                    //记录内容元素
+                    leftArr.push(node);
+                }
+            }
+
+            //左画布的高
+            canvasLeft.height = leftArr[leftArr.length - 1].offsetTop + leftArr[leftArr.length - 1].offsetHeight
+
+            //获取右侧目标库，矢量起始对象
+            var rightArr = [];
+            var rightPNodes = document.getElementById("targetDbTd");
+            for (var i = 0, length = rightPNodes.childNodes.length; i < length; i++) {
+                var node = rightPNodes.childNodes[i];
+                if (node.tagName == "FIELDSET") {
+                    //记录内容元素
+                    rightArr.push(node);
+                }
+            }
+
+            //右画布的高
+            canvasRight.height = rightArr[rightArr.length - 1].offsetTop + rightArr[rightArr.length - 1].offsetHeight
+
+            //获取集成库对象rsDb,rsDb为唯一对象，直接获取 矢量结束对象
+            var rsDb = document.getElementById("rsDb");
+
+            //取得2D画布
+            var foldLineLeft = canvasLeft.getContext('2d');
+            var foldLineRight = canvasRight.getContext('2d');
+
+
+            ////////////////////////左侧///////////////////////////////////
+            for (var li = 0, length = leftArr.length; li < length; li++) {
+                var node = leftArr[li];
+                //计算每个field的起始点，和相邻的右侧链接点
+                var startP = { x: 0, y: node.offsetTop + node.offsetHeight / 2 };
+                var endP = { x: canvasLeft.width / 2, y: node.offsetTop + node.offsetHeight / 2 };
+                //绘图
+                setLeftLine(foldLineLeft, startP, endP);
+            }
+
+            //左侧连接DB
+            //集成库的起始接入点
+            var db_Start = { x: canvasLeft.width - 25, y: rsDb.offsetTop + rsDb.offsetHeight / 2 };
+            var left2DB = { x: canvasLeft.width / 2, y: rsDb.offsetTop + rsDb.offsetHeight / 2 };
+            setLeftLine(foldLineLeft, left2DB, db_Start);
+            setLeftArrow(db_Start);
+
+            //左侧Y轴连接线
+            var yLeftStart = { x: canvasLeft.width / 2, y: leftArr[0].offsetTop + leftArr[0].offsetHeight / 2 };
+            var yLeftEnd;
+            if (leftArr.length <= 1) {
+                yLeftEnd = { x: canvasLeft.width / 2, y: db_Start.y };
+            } else {
+                yLeftEnd = { x: canvasLeft.width / 2, y: leftArr[leftArr.length - 1].offsetTop + leftArr[leftArr.length - 1].offsetHeight / 2 };
+            }
+            setLeftLine(foldLineLeft, yLeftStart, yLeftEnd);
+
+            ////////////////////////右侧///////////////////////////////////
+            for (var ri = 0, length = rightArr.length; ri < length; ri++) {
+                var node = rightArr[ri];
+                //计算每个field的起始点，和相邻的右侧链接点
+                var startP = { x: canvasRight.width / 2, y: node.offsetTop + node.offsetHeight / 2 };
+                var endP = { x: canvasRight.width - 25, y: node.offsetTop + node.offsetHeight / 2 };
+                //绘图
+                setRightLine(foldLineRight, startP, endP);
+                setRightArrow(endP);
+            }
+
+            //集成库的终结输出点
+            var db_End = { x: canvasRight.width / 2, y: rsDb.offsetTop + rsDb.offsetHeight / 2 };
+            var right2DB = { x: 0, y: rsDb.offsetTop + rsDb.offsetHeight / 2 };
+            setRightLine(foldLineRight, right2DB, db_End);
+
+            //右侧Y轴连接线
+            var yRightStart = { x: canvasRight.width / 2, y: rightArr[0].offsetTop + rightArr[0].offsetHeight / 2 };
+            var yRightEnd;
+            if (rightArr.length <= 1) {
+                yRightEnd = { x: canvasRight.width / 2, y: db_End.y };
+            } else {
+                yRightEnd = { x: canvasRight.width / 2, y: rightArr[rightArr.length - 1].offsetTop + rightArr[rightArr.length - 1].offsetHeight / 2 };
+            }
+            setRightLine(foldLineRight, yRightStart, yRightEnd);
+        }
+        //window.onload = prepLoad();
+        //document.body.onload = prepLoad();
+    </script>
+</head>
+<body class="bodyStyle" onload="prepLoad()">
+
+    <div class="marginTop30">
+        <div style="width: 100%; margin: auto auto; background-color: #fff">
+            <table class="tableBorderStyle" style="width: 840px; margin: auto auto;">
+                <tr>
+                    <td class="tableContentEndsHead" style="width: 210px">源库
+                    </td>
+                    <td class="tableContentEndsHead" style="width: 420px">集成库
+                    </td>
+                    <td class="tableContentEndsHead" style="width: 210px">目标库
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table class="tableBorderStyle" style="width: 800px; margin: auto auto">
+            <tr>
+                <td>
+                    <table id="table" class="tableBorderStyle">
+                        <tr>
+                            <td id="sourceDbTd" style="width: 200px; text-align: left">
+                                <fieldset class="groupbox" style="text-align: left;" id="local1">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    OA系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset1">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    OA系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset2">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    OA系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset3">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    OA系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset4">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    OA系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                            </td>
+                            <td id="leftCanvasTD" style="vertical-align: top">
+                                <canvas id="leftCanvas"></canvas>
+                            </td>
+                            <td id="rsDbTd" style="text-align: left; width: 200px">
+                                <div style="background-color: #bbd7fb; border: 1px dashed #000;">
+                                    <fieldset class="groupbox" style="text-align: left; background-color: #bbd7fb" id="rsDb">
+                                        <legend class="cent2" style="background-color: #bbd7fb">XXX集成库</legend>
+                                        TABLE XXX<br>
+                                        TABLE XXX<br>
+                                        TABLE XXX<br>
+                                        TABLE XXX<br>
+                                        TABLE XXX<br>
+                                        TABLE XXX
+                                    </fieldset>
+                                </div>
+                            </td>
+                            <td id="rightCanvasTD" style="vertical-align: top">
+                                <canvas id="rightCanvas" style="margin-top: 0px"></canvas>
+                            </td>
+                            <td id="targetDbTd" style="text-align: left; width: 200px">
+                                <fieldset class="groupbox" style="text-align: left;" id="local5">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    健康系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset5">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    健康系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset6">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    健康系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset7">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    健康系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset8">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    健康系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                                <br />
+                                <br />
+                                <fieldset class="groupbox" style="text-align: left;" id="Fieldset9">
+                                    <legend class="groupboxHeader">XXXX源库</legend>
+                                    健康系统<br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                                <br>
+                                    TABLE XXX
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <!--<script type="text/javascript">
+
+        //设定画布的宽高
+        var canvasLeft = document.getElementById("leftCanvas");
+        var canvasRight = document.getElementById("rightCanvas");
+        canvasLeft.width = 100; 
+        if (canvasLeft.height < document.body.scrollHeight) {
+            canvasLeft.height = document.body.scrollHeight;
+        }
+        //if (canvasLeft.height < window.innerHeight) {
+        //    canvasLeft.height = window.innerHeight;
+        //}
+        canvasRight.width = 100;
+        if (canvasRight.height < document.body.scrollHeight) {
+            canvasRight.height = document.body.scrollHeight;
+        }
+        //if (canvasRight.height < window.innerHeight) {
+        //    canvasRight.height = window.innerHeight;
+        //}
+        //获取左侧源库，矢量起始对象
+        var leftArr = [];
+        var leftPNodes = document.getElementById("sourceDbTd");
+        for (var i = 0, length = leftPNodes.childNodes.length; i < length; i++) {
+            var node = leftPNodes.childNodes[i];
+            if (node.tagName == "FIELDSET") {
+                //记录内容元素
+                leftArr.push(node);
+            }
+        }
+        //获取右侧目标库，矢量起始对象
+        var rightArr = [];
+        var rightPNodes = document.getElementById("targetDbTd");
+        for (var i = 0, length = rightPNodes.childNodes.length; i < length; i++) {
+            var node = rightPNodes.childNodes[i];
+            if (node.tagName == "FIELDSET") {
+                //记录内容元素
+                rightArr.push(node);
+            }
+        }
+        //获取集成库对象rsDb,rsDb为唯一对象，直接获取 矢量结束对象
+        var rsDb = document.getElementById("rsDb");
+
+        //取得2D画布
+        var foldLineLeft = canvasLeft.getContext('2d');
+        var foldLineRight = canvasRight.getContext('2d');
+
+
+        ////////////////////////左侧///////////////////////////////////
+        for (var li = 0, length = leftArr.length; li < length; li++) {
+            var node = leftArr[li];
+            //计算每个field的起始点，和相邻的右侧链接点
+            var startP = { x: 0, y: node.offsetTop + node.offsetHeight / 2 };
+            var endP = { x: canvasLeft.width / 2, y: node.offsetTop + node.offsetHeight / 2 };
+            //绘图
+            setLeftLine(foldLineLeft, startP, endP);
+        }
+
+        //左侧连接DB
+        //集成库的起始接入点
+        var db_Start = { x: canvasLeft.width - 25, y: rsDb.offsetTop + rsDb.offsetHeight / 2 };
+        var left2DB = { x: canvasLeft.width / 2, y: rsDb.offsetTop + rsDb.offsetHeight / 2 };
+        setLeftLine(foldLineLeft, left2DB, db_Start);
+        setLeftArrow(db_Start);
+
+        //左侧Y轴连接线
+        var yLeftStart = { x: canvasLeft.width / 2, y: leftArr[0].offsetTop + leftArr[0].offsetHeight / 2 };
+        var yLeftEnd;
+        if (leftArr.length <= 1) {
+            yLeftEnd = { x: canvasLeft.width / 2, y: db_Start.y };
+        } else {
+            yLeftEnd = { x: canvasLeft.width / 2, y: leftArr[leftArr.length - 1].offsetTop + leftArr[leftArr.length - 1].offsetHeight / 2 };
+        }
+        setLeftLine(foldLineLeft, yLeftStart, yLeftEnd);
+
+        ////////////////////////右侧///////////////////////////////////
+        for (var ri = 0, length = rightArr.length; ri < length; ri++) {
+            var node = rightArr[ri];
+            //计算每个field的起始点，和相邻的右侧链接点
+            var startP = { x: canvasRight.width / 2, y: node.offsetTop + node.offsetHeight / 2 };
+            var endP = { x: canvasRight.width - 25, y: node.offsetTop + node.offsetHeight / 2 };
+            //绘图
+            setRightLine(foldLineRight, startP, endP);
+            setRightArrow(endP);
+        }
+
+        //集成库的终结输出点
+        var db_End = { x: canvasRight.width / 2, y: rsDb.offsetTop + rsDb.offsetHeight / 2 };
+        var right2DB = { x: 0, y: rsDb.offsetTop + rsDb.offsetHeight / 2 };
+        setRightLine(foldLineRight, right2DB, db_End);
+
+        //右侧Y轴连接线
+        var yRightStart = { x: canvasRight.width / 2, y: rightArr[0].offsetTop + rightArr[0].offsetHeight / 2 };
+        var yRightEnd;
+        if (rightArr.length <= 1) {
+            yRightEnd = { x: canvasRight.width / 2, y: db_End.y };
+        } else {
+            yRightEnd = { x: canvasRight.width / 2, y: rightArr[rightArr.length - 1].offsetTop + rightArr[rightArr.length - 1].offsetHeight / 2 };
+        }
+        setRightLine(foldLineRight, yRightStart, yRightEnd);
+
+
+    </script>-->
+    <div class="marginTop10">
+        <div style="width: 30px; margin: auto auto 20px auto">
+            <input type="button" value='' class="return_unPress" onclick="location.href = 'seeDbStates.html'" />
+        </div>
+    </div>
+</body>
+</html>
+

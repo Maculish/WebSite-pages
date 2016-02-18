@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/num.css" />
+    <style type="text/css"></style>
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/AddorDel.js"></script>
+    <script type="text/javascript">
+        function addNewDs() {
+            $("#childTr").clone(true).appendTo($("#targetTb"));
+        }
+        function deletNewDs(node) {
+            var num = $(".delete_unPress").length;
+            if (num <= 1) return;
+            $(node).parent().parent().parent().parent().parent().remove();
+        }
+    </script>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop30">
+        <table style="width: 600px; margin: auto auto">
+            <tr>
+                <td class="head" style="width: 100px; text-align: right">集成库
+                    :</td>
+                <td class="head" colspan="4">XXXXXXXXXXXXXXX
+                </td>
+            </tr>
+            <tr>
+                <td class="head" style="width: 100px; text-align: right">导出表
+                    :</td>
+                <td class="head">
+                    <select class="inputNoWidth" style="width: 188px">
+                        <option value="0">TABLE XXXXXXXXXXXXXXX</option>
+                        <option value="1">TABLE XXXXXXXXXXXXXXX</option>
+                        <option value="2">TABLE XXXXXXXXXXXXXXX</option>
+                        <option value="3">TABLE XXXXXXXXXXXXXXX</option>
+                        <option value="4">TABLE XXXXXXXXXXXXXXX</option>
+                        <option value="5">TABLE XXXXXXXXXXXXXXX</option>
+                        <option value="6">TABLE XXXXXXXXXXXXXXX</option>
+                    </select>
+                </td>
+                <td class="head" style="width: 85px; text-align: right">集成系统:</td>
+                <td>
+                    <select class="inputNoWidth" style="width: 188px" name="D2">
+                        <option value="1">人力资源系统</option>
+                        <option value="2">获取人员信息的业务系统</option>
+                        <option value="3">全球健康查询服务 </option>
+                        <option value="4">国家健康查询代理服务</option>
+                        <option value="7">OA系统</option>
+                        <option value="8">用友HR系统</option>
+                        <option value="9">综合项目管理系统</option>
+                    </select></td>
+                <td>
+                    <input id="addButton0" type="button" class="add_unPress" onclick="addNewDs();" onmousedown="addonMouseDown(this)" onmouseup="addonMouseUp(this)" /></td>
+            </tr>
+        </table>
+    </div>
+    <div style="width: 100%; margin: auto auto">
+        <table id="targetTb" class="tableBorderStyle" style="width: 100%; margin: auto auto">
+            <tr id="childTr">
+                <td>
+                    <table class="tableBorderStyle" style="width: 100%; margin: 30px auto auto auto">
+                        <tr>
+                            <td class="paddingTopBottom10Head" style="background: #c5c5c5; text-align: right">导出表:</td>
+                            <td class="paddingTopBottom10Head" style="background: #c5c5c5">TABLE XXXXXX
+                            </td>
+                            <td class="paddingTopBottom10Head" style="background: #c5c5c5; text-align: right">集成系统:
+                            </td>
+                            <td class="paddingTopBottom10Head" style="background: #c5c5c5">人力资源系统</td>
+                            <td  style="background: #c5c5c5; width: 12%; text-align: center">
+                                <input id="deleteButton0" type="button" class="delete_unPress" onclick="deletNewDs(this)" onmousedown="delonMouseDown(this)" onmouseup="delonMouseUp(this)" /></td>
+                        </tr>
+                    </table>
+                    <table style="width: 100%; margin: auto auto" class="tableBorderStyle">
+                        <tr>
+                            <td class="tableContentHead" style="width: 6%">编号
+                            </td>
+                            <td class="tableContentHead" style="width: 20%">数据源</td>
+                            <td class="tableContentHead" colspan="2">目标表
+                            </td>
+                            <td class="tableContentHead" style="width: 12%">全选
+                <input type="checkbox" />
+                            </td>
+                        </tr>
+                        <tr class="height20">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td id="targetNum" class="tableContentNum">1
+                            </td>
+                            <td class="roleQuli">DS XXXXXXXXXX
+                            </td>
+                            <td class="rectangletd">
+                                <img class="rectangleImg" src="img/rectangle.png" /></td>
+                            <td class="tableContent">
+											<select name="D3" class="inputNoWidth">
+												<option value="0">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="1">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="2">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="3">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="4">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="5">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="6">TABLE XXXXXXXXXXXXXXX</option>
+											</select></td>
+                            <td class="tableContent" style="text-align: center">
+                                <input type="checkbox" />
+                            </td>
+                        </tr>
+                        <tr class="height20">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="tableContentNum">2
+                            </td>
+                            <td class="roleQuli">DS XXXXXXXXXX
+                            </td>
+                            <td class="rectangletd">
+                                <img class="rectangleImg" src="img/rectangle.png" /></td>
+                            <td class="tableContent">
+											<select name="D4" class="inputNoWidth">
+												<option value="0">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="1">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="2">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="3">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="4">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="5">TABLE XXXXXXXXXXXXXXX</option>
+												<option value="6">TABLE XXXXXXXXXXXXXXX</option>
+											</select></td>
+                            <td class="tableContent" style="text-align: center">
+                                <input type="checkbox" />
+                            </td>
+                        </tr>
+                        <tr class="height20">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="marginTop10">
+        <table style="width: 200px; margin: auto auto; text-align: center">
+            <tr>
+                <td>
+                    <input id="Button2" type="button" class="previous_unPress" /></td>
+                <td>
+                    <input id="Button1" type="button" class="next_unPress" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

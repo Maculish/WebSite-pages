@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/num.css" />
+    <style type="text/css"></style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop30">
+        <table style="width: 400px; margin: auto auto">
+            <tr>
+                <td class="head" style="text-align: right">当前服务总数: </td>
+                <td class="head">NNN</td>
+                <td class="head" style="text-align: right">当前业务流总数:</td>
+                <td class="head">NNN</td>
+            </tr>
+        </table>
+    </div>
+    <div style="width: 100%; margin: 10px auto auto auto">
+        <table class="tableBorderStyle" style="width: 100%">
+            <tr>
+                <td class="tableContentEndsHead" style="width: 6%">编号
+                </td>
+                <td class="tableContentHead" style="width: 18%">业务流名称
+                </td>
+                <td class="tableContentHead" colspan="2">业务流发布地址
+                </td>
+                <td class="tableContentHead" style="width: 10%">服务总数
+                </td>
+                <td class="tableContentEndsHead" style="width: 10%">操作
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">1
+                </td>
+                <td class="roleQuli">入力资源系统
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">http://192.168.70.187:50000/services/BizSys1?wsdl
+                </td>
+                <td class="tableContent">2
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button1" type="button" value="" class="detail_unPress" onclick="link2Next('seeFlowDetail.html');" onmousedown="detailonMouseDown(this)" onmouseup="detailonMouseUp(this)"/>
+                    <div class="iconLable">业务详情</div>
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum">2
+                </td>
+                <td class="roleQuli">OA系统
+                </td>
+                <td class="rectangletd">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">http://192.168.70.187:50000/services/BizSys1?wsdl
+                </td>
+                <td class="tableContent">5
+                </td>
+                <td class="tableContentEdit">
+                    <input id="Button2" type="button" value="" class="detail_unPress" onclick="link2Next('seeFlowDetail.html');" />
+                    <div class="iconLable">业务详情</div>
+                </td>
+            </tr>
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

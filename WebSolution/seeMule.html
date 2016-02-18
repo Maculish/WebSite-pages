@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/num.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .searchTextBoxStyle {
+            width: 155px;
+            height: 25px;
+            line-height: 25px;
+            text-align: left;
+            padding-left: 5px;
+            vertical-align: central;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: thin solid #b7b7b7;
+        }
+
+        .searchTitleStyle {
+            vertical-align: central;
+            width: 115px;
+            padding-left: 20px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .searchTextTdStyle {
+            text-align: left;
+            vertical-align: central;
+            width: 160px;
+        }
+
+        .searchTd {
+            text-align: center;
+            vertical-align: central;
+            width: 120px;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div class="marginTop10">
+        <table style="width: 750px; margin: auto auto">
+            <tr>
+                <td class="searchTitleStyle">请求时间（止）</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="muleLog.inStartTime" value="" id="startTime" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" class="searchTextBoxStyle" /></td>
+                <td class="searchTitleStyle">请求时间（止）</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="muleLog.inStartTime0" value="" id="startTime0" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" class="searchTextBoxStyle" /></td>
+                <td rowspan="3" class="searchTd">
+                    <input id="Button1" class="search_unPress" type="button" onmousedown="searchonMouseDown(this)" onmouseup="searchonMouseUp(this)" /></td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">响应时间（止）</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="muleLog.inStartTime1" value="" id="startTime1" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" class="searchTextBoxStyle" /></td>
+                <td class="searchTitleStyle">响应时间（止）</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="muleLog.inStartTime2" value="" id="startTime2" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" class="searchTextBoxStyle" /></td>
+            </tr>
+            <tr>
+                <td class="searchTitleStyle">业务流名称</td>
+                <td class="searchTextTdStyle">
+                    <input type="text" name="muleLog.inStartTime3" value="" id="startTime3" onclick="" class="searchTextBoxStyle" /></td>
+                <td class="searchTitleStyle">所属系统</td>
+                <td class="searchTextTdStyle">
+                    <select id="Select1" class="searchTextBoxStyle" style="width: 162px; height: 28px">
+                        <option value=""></option>
+                        <option value="人力资源系统">人力资源系统</option>
+                        <option value="获取人员信息的业务系统">获取人员信息的业务系统</option>
+                        <option value="全球健康查询服务 ">全球健康查询服务 </option>
+                        <option value="国家健康查询代理服务">国家健康查询代理服务</option>
+                        <option value="OA系统">OA系统</option>
+                        <option value="用友HR系统">用友HR系统</option>
+                        <option value="综合项目管理系统">综合项目管理系统</option>
+
+                    </select>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="marginTop10">
+        <div style="width: 100%; background-color: #fff">
+            <table class="tableBorderStyle" style="table-layout: fixed; width: 840px; margin: auto auto">
+                <tr>
+                    <td class="tableContentEndsHead" style="width: 40px" rowspan="2">编号</td>
+                    <td class="tableContentEndsHead" style="width: 40px" rowspan="2">&nbsp;</td>
+                    <td class="tableContentHead" style="width: 100px">请求时间</td>
+                    <td class="tableContentHead" style="width: 100px">业务流名称</td>
+                    <td class="tableContentHead" style="width: 200px" rowspan="2">执行流程</td>
+                    <td class="tableContentHead" style="width: 200px" rowspan="2">调用方法</td>
+                    <td class="tableContentHead" style="width: 100px">请求参数</td>
+                    <td class="tableContentHead" style="width: 40px" rowspan="2">状态</td>
+                </tr>
+                <tr>
+                    <td class="tableContentHead">响应时间</td>
+                    <td class="tableContentHead">所属系统</td>
+                    <td class="tableContentHead">响应参数</td>
+                </tr>
+            </table>
+        </div>
+        <table class="tableBorderStyle" style="table-layout: fixed; width: 840px; margin: auto auto">
+            <tr class="height20">
+                <td style="width: 40px"></td>
+                <td style="width: 40px">&nbsp;</td>
+                <td style="width: 100px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 200px"></td>
+                <td style="width: 200px"></td>
+                <td style="width: 100px"></td>
+                <td style="width: 40px"></td>
+            </tr>
+            <tr>
+                <td class="tableContentNum" rowspan="2">1
+                </td>
+                <td class="rectangletd" rowspan="2">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">2014-09-04 17:33:38
+                </td>
+                <td class="tableContent">Notice
+                </td>
+                <td class="tableContent" rowspan="2">执行BizSys1(BizSys1)<br />
+                    <span class="label-error">执行BizSys2(BizSys2)</span><br />
+                </td>
+                <td class="tableContent" rowspan="2">int notify(int[] personIds)
+                </td>
+                <td class="tableContent">[1,2,3,4];
+                </td>
+                <td class="tableContent" rowspan="2" style="padding: 0; text-align: center">正常		
+                </td>
+            </tr>
+            <tr>
+                <td class="tableContent">2014-09-04 17:33:39
+                </td>
+                <td class="tableContent">获取人员信息的业务系统
+                </td>
+                <td class="tableContent">1
+                </td>
+            </tr>
+
+            <tr class="height20">
+                <td style="width: 5%"></td>
+                <td style="width: 5%">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="width: 5%"></td>
+            </tr>
+
+            <tr>
+                <td class="tableContentNum" rowspan="2">2
+                </td>
+                <td class="rectangletd" rowspan="2">
+                    <img src="img/rectangle.png" class="rectangleImg" /></td>
+                <td class="tableContent">2014-09-04 17:33:36
+                </td>
+                <td class="tableContent">Notice
+                </td>
+                <td class="tableContent" rowspan="2">
+                    <span class="label-error">执行BizSys1(BizSys1)</span><br />
+                    执行BizSys2(BizSys2)<br />
+                </td>
+                <td class="tableContent" rowspan="2">int notify(int[] personIds)
+                </td>
+                <td class="tableContent">[1,2,3,4];
+                </td>
+                <td class="tableContent" rowspan="2" style="padding: 0; text-align: center">正常
+									
+									
+                </td>
+            </tr>
+            <tr>
+                <td class="tableContent">2014-09-04 17:33:38
+                </td>
+                <td class="tableContent">人力资源系统
+                </td>
+                <td class="tableContent">1
+                </td>
+            </tr>
+
+            <tr class="height20">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="menu">
+        <table id="menuTablePage">
+            <tr>
+                <td>共8条数据</td>
+                <td></td>
+                <td>第
+			1
+			页/共
+			1
+			页</td>
+                <td></td>
+                <td>跳转至</td>
+
+                <td class="anglebrackets">&lt;</td>
+                <td style="width: 20px">第</td>
+                <td style="width: 25px">
+                    <div class="divPageNum">
+                        <select class="pageNum" style="float: left" name="D1">
+                            <option selected="selected" value="1">001</option>
+                            <option value="2">002</option>
+                        </select>
+                    </div>
+                </td>
+                <td>页</td>
+                <td class="anglebrackets">&gt;</td>
+
+                <td style="text-align: right">每页显示</td>
+                <td class="anglebrackets" style="text-align: right">&lt;</td>
+                <td style="width: 27px;">
+                    <div class="divPageCount">
+                        <select name="" class="pageCount">
+                            <option class="pageCountOption" value="10" selected="selected">10</option>
+                            <option class="pageCountOption" value="20">20</option>
+                            <option class="pageCountOption" value="30">30</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="anglebrackets" style="text-align: left">&gt;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

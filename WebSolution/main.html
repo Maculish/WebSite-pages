@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>中航web</title>
+    <meta name="Description" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="author" content="Hello.World" />
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/AddorDel.js"></script>
+    <script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var menuDiv = ["#m1", "#m2", "#m3", "#m4", "#m5", "#m6", "#m7"];
+            for (var i = 0, length = menuDiv.length; i < length; i++) {
+                var divEls = $(menuDiv[i]);
+                divEls[0].onmousedown = function () {
+                    //鼠标按下的时候触发
+                    //替换this对象的背景色 #004b97
+                    this.style.background = "#a6acae";
+                    //替换图片
+                    var divElsImg = this.children[0];
+                    var divElsText = this.children[1];
+                    divElsImg.src = divElsImg.src.replace(/u.jpg/, "p.jpg");
+                    divElsText.style.background = "#a6acae";
+                    divElsText.style.color = "black";
+                    //替换其他对象的背景为原色 #808080
+                    var lmenuDiv = ["#m1", "#m2", "#m3", "#m4", "#m5", "#m6", "#m7"];
+
+                    for (var i = 0, mlength = lmenuDiv.length; i < mlength; i++) {
+                        var divEls = $(lmenuDiv[i]);
+                        var tarDiv = divEls[0];
+                        if (tarDiv.id != this.id) {
+                            tarDiv.style.background = "#fff";
+                            var tElsImg = tarDiv.children[0];
+                            var tElsText = tarDiv.children[1];
+                            tElsImg.src = tElsImg.src.replace(/p.jpg/, "u.jpg");
+                            tElsText.style.background = "#fff";
+                            tElsText.style.color = "#a6acae";
+                        }
+                    }
+
+                    var divNum = this.id;
+                    divNum = divNum.substr(1, 1);
+                    //展示对应的ul
+                    $("#side").css("display", "block");
+                    var ulEls = $("#side").find("ul");
+                    var uiTitle = $("#side").find("div");
+                    for (var ll = 0; ll < ulEls.length; ll++) {
+                        var tarUl = ulEls[ll];
+                        var ulNum = tarUl.id;
+                        ulNum = ulNum.substr(1, 1);
+                        if (divNum == ulNum) {
+                            uiTitle[ll].style.display = "block";
+                            tarUl.style.display = "block";
+                        }
+                        else {
+                            tarUl.style.display = "none";
+                            uiTitle[ll].style.display = "none";
+                        }
+                    }
+
+                }
+            }
+            ready4link();
+        });
+
+        function ready4link() {
+            $("#side ul li a").click(function () {
+                var aEls = $("#side ul li a");
+                $(this).css("color", "#2573c7");
+                for (var i = 0, length = aEls.length; i < length; i++) {
+                    if (aEls[i] != this)
+                        $(aEls[i]).css("color", "#a6acae");
+                }
+                if ($("#loadTag") == undefined)
+                    $("#content").append("<div id='loadTag' class='loader'>Loading</div>");
+                else if ($("#loadTag").length == 0)
+                    $("#content").append("<div id='loadTag' class='loader'>Loading</div>");
+                var targetUrl = $(this).attr('href');
+                $.ajax({
+                    type: "get",
+                    url: targetUrl,
+                    cache: false,
+                    error: function () { alert('加载页面' + targetUrl + '时出错,请重试！'); },
+                    success: function (msg) {
+                        $("#currentUrl").val(""); $("#lastUrl").val("");
+                        $("#content").empty().append(msg);
+                        $("#currentUrl").val(targetUrl);
+
+                        //此处为示列，加载相应的图片，具体使用那张图片，由后台权限过滤后给出相应的图片，之后调用相应的方法
+                        if (targetUrl == "editRs.html") setTitleImg("setRs_1.jpg");
+                    }
+                });
+                return false;
+            });
+            //$("#lastUrl").change(function () {
+            //    $.ajax({
+            //        type: "get",
+            //        url: $(this).val(),
+            //        cache: false,
+            //        error: function () { alert('加载页面' + url + '时出错,请重试！'); },
+            //        success: function (msg) {
+            //            $("#content").empty().append(msg);
+            //        }
+            //    });
+            //    alert($(this).val());
+            //});
+            //$("#currentUrl").change(function () {
+            //    $.ajax({
+            //        type: "get",
+            //        url: $(this).val(),
+            //        cache: false,
+            //        error: function () { alert('加载页面' + url + '时出错,请重试！'); },
+            //        success: function (msg) {
+            //            $("#content").empty().append(msg);
+            //        }
+            //    });
+            //    alert($(this).val()+"onChange");
+            //});
+        }
+
+        function link2Next(turl) {
+            $.ajax({
+                type: "get",
+                url: turl,
+                cache: false,
+                error: function () { alert('加载页面' + turl + '时出错,请重试！'); },
+                success: function (msg) {
+                    $("#content").empty().append(msg);
+                    var lastUrl = $("#currentUrl").val();
+                    $("#lastUrl").val(lastUrl);
+                    $("#currentUrl").val(turl);
+                }
+            });
+        }
+
+        function return2last() {
+            var lastUrl = $("#lastUrl").val();
+            if (lastUrl == "") return;
+            var currentUrl = $("#currentUrl").val();
+            $("#currentUrl").val(lastUrl)
+            $.ajax({
+                type: "get",
+                url: lastUrl,
+                cache: false,
+                error: function () { alert('加载页面' + lastUrl + '时出错,请重试！'); },
+                success: function (msg) {
+                    $("#content").empty().append(msg);
+                }
+            });
+        }
+        var nextList = [];
+        function go2Next(turl) {
+            $.ajax({
+                type: "get",
+                url: turl,
+                cache: false,
+                error: function () { alert('加载页面' + turl + '时出错,请重试！'); },
+                success: function (msg) {
+                    $("#content").empty().append(msg);
+                    nextList.push(turl);
+                }
+            });
+        }
+        function go2Previous() {
+            var turl = nextList.pop();
+            $.ajax({
+                type: "get",
+                url: turl,
+                cache: false,
+                error: function () {
+                    nextList.push(turl);
+                    alert('加载页面' + turl + '时出错,请重试！');
+                },
+                success: function (msg) {
+                    $("#content").empty().append(msg);
+                }
+            });
+        }
+
+        //预留，链接到指定url的页面，调用方法onclick=link2href('你的地址');
+        function link2href(turl) {
+            $.ajax({
+                type: "get",
+                url: turl,
+                cache: false,
+                error: function () {
+                    alert('加载页面' + turl + '时出错,请重试！');
+                },
+                success: function (msg) {
+                    $("#content").empty().append(msg);
+                }
+            });
+        }
+
+        //替换title图片的方法，调用此方法，例如：onclick="link2Next('editRs.html'),setTitleImg('setRs_1.jpg')"
+        function setTitleImg(imgName) {
+            var img = "img/" + imgName;
+            $("#titleImg").attr("src", img);
+        }
+    </script>
+    <!-- //框架布局样式-->
+    <style type="text/css">
+        html, body {
+            overflow: auto;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #DADADA;
+            font-family: 'Microsoft YaHei';
+            /*font-size: 10pt;*/
+            color: #000;
+        }
+
+        html {
+            _padding: 110px 0;
+        }
+
+        #hd {
+            /*top: 0;
+            left: 0;*/
+            width: 1180px;
+            height: 95px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #2573c7;
+            min-width: 700px;
+            min-height: 68px;
+        }
+
+        #md {
+            /*left: 0;*/
+            width: 1180px;
+            height: 85px;
+            _width: 1180px;
+            _height: 85px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #fff;
+            /*min-width: 700px;
+            min-height: 73px;*/
+            /*position:relative;*/
+        }
+
+        #testdiv {
+            width: 1180px;
+            height: 19px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #C5C5C5;
+        }
+
+        #bd {
+            background: #C5C5C5;
+            /*overflow: hidden;*/
+            width: 1180px;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            min-height: 740px;
+        }
+
+        #main {
+            float: right;
+            /*margin-top: 0;
+            margin-bottom: 0;*/
+            border: none;
+            height: 740px;
+            width: 78%;
+            background: #F2F2F2;
+            /*background: #fff;*/
+            /*background: #ff6a00;*/
+        }
+
+        #pageTag {
+            height: 105px;
+            width: 100%;
+            /*background: #2573c7;*/
+        }
+
+        #side {
+            float: left;
+            /*padding-left: -1em;*/
+            border: none;
+            overflow: auto;
+            /*width: 200px;*/
+            width: 18%;
+            height: 740px;
+            background: #393b3b;
+            /*min-height: 740px;*/
+            /*border: solid 1px #393b3b;*/
+            color: #a6acae;
+        }
+
+            #side div {
+                margin-top: 5px;
+                display: none;
+                font-size: 15pt;
+                border-bottom: solid 1px #a6acae;
+                background: #393b3b;
+                width: 85%;
+                height: 28px;
+                margin: auto auto;
+                padding-top: 15px !important;
+                padding-top: 18px;
+                padding-bottom: 15px;
+                padding-left: 18px;
+            }
+
+            #side ul {
+                display: none;
+                width: 70%;
+                margin: auto auto;
+                border: none;
+                padding-left: 10px;
+            }
+
+                #side ul li {
+                    border: none;
+                    color: #a6acae;
+                    margin-top: 8px;
+                    margin-bottom: 8px;
+                    /*margin-left:0px;*/
+                    padding-left: 5px;
+                    padding-right: 15px;
+                    padding-bottom: 2px;
+                    padding-top: 5px;
+                    list-style: none;
+                }
+
+                    #side ul li a {
+                        /*color: white;*/
+                        text-decoration: none;
+                        color: #a6acae;
+                    }
+
+        /*#side ul li a:hover {
+                            color: #2573c7;
+                            text-decoration: none;
+                            font-weight: normal;
+                        }*/
+
+        #content {
+            /*overflow-x: hidden;
+            overflow-y: auto;*/
+            overflow: auto;
+            width: 100%;
+            height: 620px;
+        }
+
+        .annormalStyle {
+            text-decoration: none;
+            color: #a6acae;
+        }
+
+        /*.hoverStyle {
+            color: #2573c7;
+            text-decoration: none;
+            font-weight: normal;
+        }*/
+    </style>
+
+    <!-- 菜单样式-->
+    <style type="text/css">
+        .m6 {
+            float: left;
+            /*display: inline;*/
+            width: 110px;
+            height: 100%;
+            text-align: center;
+            /*position: relative;*/
+        }
+
+        .menuImg {
+            width: 40px;
+            height: 40px;
+            margin-right: auto;
+            margin-top: 10px;
+            margin-left: auto;
+        }
+
+        .menuText {
+            font-family: 'Microsoft YaHei';
+            height: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+            color: #a6acae;
+            font-size: 10pt;
+        }
+
+        #menuUsr {
+            /*position: relative;*/
+            height: 100%;
+            width: 30%;
+            float: left;
+            text-align: center;
+        }
+
+            #menuUsr table {
+                margin: auto auto;
+                width: 300px;
+                height: 100%;
+                margin-left: 20%;
+            }
+
+        .menuUsrtd1 {
+            width: 60px;
+            text-align: right;
+        }
+
+        .menuUsrtd2 {
+            width: 180px;
+        }
+
+        .menuUsrtd3 {
+            width: 60px;
+        }
+
+        .menuUsrIcon {
+            width: 28px;
+            height: 24px;
+            margin: auto auto;
+        }
+
+        .menuUsrText {
+            height: 22px;
+            line-height: 22px;
+            width: 180px;
+            margin: auto auto;
+            vertical-align: central;
+            border: thin solid #a6acae;
+        }
+
+        .menuLoginOut {
+            width: 25px;
+            height: 25px;
+            margin: auto auto;
+            background-color: transparent;
+            border: 0;
+            background-image: url('img/reg.png');
+            background-repeat: no-repeat;
+        }
+
+        .loader {
+            margin: 20% auto auto auto;
+            width: 150px;
+            height: 40px;
+            background: #2573c7;
+            color: #0ce524;
+            text-align: center;
+            vertical-align: central;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="hd">
+        <img src="img/header.png" />
+    </div>
+
+    <div id="md">
+        <div id="m1" class="m6">
+            <img src="img/Au.jpg" class="menuImg" />
+            <div class="menuText">集成系统</div>
+        </div>
+        <div id="m2" class="m6">
+            <img src="img/Bu.jpg" class="menuImg" /><div class="menuText">业务管理</div>
+        </div>
+        <div id="m3" class="m6">
+            <img src="img/Cu.jpg" class="menuImg" /><div class="menuText">数据管理</div>
+        </div>
+        <div id="m4" class="m6">
+            <img src="img/Du.jpg" class="menuImg" /><div class="menuText">统计管理</div>
+        </div>
+        <div id="m5" class="m6">
+            <img src="img/Eu.jpg" class="menuImg" /><div class="menuText">日志管理</div>
+        </div>
+        <div id="m6" class="m6">
+            <img src="img/Fu.jpg" class="menuImg" /><div class="menuText">用户管理</div>
+        </div>
+        <div id="m7" class="m6">
+            <img src="img/Gu.jpg" class="menuImg" /><div class="menuText">系统设置</div>
+        </div>
+        <div id="menuUsr">
+            <table>
+                <tr>
+                    <td class="menuUsrtd1">
+                        <img src="img/usericon.png" class="menuUsrIcon" /></td>
+                    <td class="menuUsrtd2">
+                        <input id="Text1" type="text" value="你好：3744" class="menuUsrText" readonly="readonly" /></td>
+                    <td class="menuUsrtd3">
+                        <input id="login_out" type="button" value="" class="menuLoginOut" /></td>
+                </tr>
+            </table>
+        </div>
+        <input id="lastUrl" type="hidden" value="lastUrl" /><input id="currentUrl" type="hidden" value="currentUrl" onchange="alert('current changed')" />
+    </div>
+    <div id="testdiv"></div>
+    <div id="bd">
+        <div id="side" oncontextmenu="return false;">
+            <div>系统管理</div>
+            <ul id="p1">
+                <li><a href="editRs.html">增加集成系统</a></li>
+                <li><a href="seeRs.html">查看集成系统</a></li>
+                <li><a href="editWs.html">增加服务</a></li>
+                <li><a href="seeWs.html">查看服务</a></li>
+                <li><a href="editDs.html">增加数据源</a></li>
+                <li><a href="seeDs.html">查看数据源</a></li>
+            </ul>
+            <div>业务管理</div>
+            <ul id="p2">
+                <li><a href="seeMode.html">查看应用模式</a></li>
+                <li><a href="editFlow.html">增加业务流</a></li>
+                <li><a href="seeFlow.html">查看业务流</a></li>
+            </ul>
+            <div>数据管理</div>
+            <ul id="p3">
+                <li><a href="editimp.html">增加导入规则</a></li>
+                <li><a href="seeImp.html">查看导入规则</a></li>
+                <li><a href="seeImpData.html">查看导入数据</a></li>
+                <li><a href="editExp.html">增加导出规则</a></li>
+                <li><a href="seeExp.html">查看导出规则</a></li>
+            </ul>
+            <div>统计管理</div>
+            <ul id="p4">
+                <li><a href="seeFlowStates.html">业务流集计</a></li>
+                <li><a href="seeDbStates.html">数据集计</a></li>
+            </ul>
+            <div>日志管理</div>
+            <ul id="p5">
+                <li><a href="seeWeb.html">操作日志</a></li>
+                <li><a href="seeMule.html">系统日志</a></li>
+                <li><a href="seeDb.html">数据日志</a></li>
+            </ul>
+            <div>用户管理</div>
+            <ul id="p6">
+                <li><a href="editRole.html">增加角色</a></li>
+                <li><a href="seeRole.html">查看角色</a></li>
+                <li><a href="editUser.html">增加用户</a></li>
+                <li><a href="seeUser.html">查看用户</a></li>
+                <li><a href="editPass.html">修改密码</a></li>
+            </ul>
+            <div>系统设置</div>
+            <ul id="p7">
+                <li><a href="editConfig.html">系统配置</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <div id="pageTag" style="background-color: #a6acae">
+                <img id="titleImg" src="img/setRs_Ds_3.jpg" style="width: 921px; height: 105px" />
+            </div>
+            <div id="content">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
